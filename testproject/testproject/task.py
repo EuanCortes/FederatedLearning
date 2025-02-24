@@ -42,7 +42,8 @@ def load_data(partition_id: int, num_partitions: int):
     if fds is None:
         partitioner = IidPartitioner(num_partitions=num_partitions)
         fds = FederatedDataset(
-            dataset="uoft-cs/cifar10",
+            #dataset="uoft-cs/cifar10",
+            dataset="cifar10",
             partitioners={"train": partitioner},
         )
     partition = fds.load_partition(partition_id)
