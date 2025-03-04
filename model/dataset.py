@@ -15,50 +15,33 @@ default_transform = transforms.Compose(
      transforms.Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5))]) # normalise the image with mean and std of 0.5
 
 
-class CIFAR10Data:
+def load_data(validation_percent=0.2, transform=default_transform):
     '''
-    class for loading and splitting the cifar10 dataset
-    for federated learning simulation.
+    function for loading the dataset, and splitting into train, validation and test datasets
     '''
-    def __init__(
-            self,
-            iid : bool,
-            validation_percent : float = 0.2,
-            transform = default_transform
-    ):
-        
-        self.iid = iid
-        self.transform = transform
-        
-        self.load_data(validation_percent)
+    dataset = CIFAR10(root=__DATA_DIR, train=True,
+                download=True, transform=transform)
+    
+    val_size = int(validation_percent * len(dataset))   # size of validation dataset
+    train_size = len(dataset) - val_size                # size of training dataset
+
+    #generate random training and validation sets
+    trainset, valset = random_split(trainset, [train_size, val_size])
+
+    testset = CIFAR10(root=__DATA_DIR, train=False, 
+                            download=True, transform=transform)
+    
+    return trainset, valset, testset
 
 
-    def load_data(self, validation_percent):
-        '''
-        method for loading the dataset, and splitting into train, validation and test datasets
-        '''
-        dataset = CIFAR10(root=__DATA_DIR, train=True,
-                   download=True, transform=self.transform)
-        
-        self.val_size = int(validation_percent * len(dataset))   # size of validation dataset
-        self.train_size = len(dataset) - self.val_size                # size of training dataset
 
-        #generate random training and validation sets
-        trainset, valset = random_split(trainset, [self.train_size, self.val_size])
+def split_data(data, num_clients=100, iid=True):
+    '''
+    method for splitting the data depending on the FL setting
+    '''
+    if iid:
+        client_indices = torch.tensor_split(torch.randperm(len(data)), num_clients)
+    else:
+        raise NotImplementedError("Non-IID sampling has not been implemented yet")
 
-        testset = CIFAR10(root=__DATA_DIR, train=False, 
-                               download=True, transform=self.transform)
-        
-        return trainset, valset, testset
-
-
-    def split_data(self, num_clients):
-        '''
-        method for splitting the data depending on the FL setting
-        '''
-        if self.iid:
-            client_indices = torch.tensor_split(torch.randperm(self.train_size), num_clients)
-        else:
-            raise NotImplementedError("Non-IID sampling has not been implemented yet")
-
-        return client_indices
+    return client_indices
