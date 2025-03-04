@@ -1,7 +1,7 @@
 import torch
 from torch import nn
-#from torchvision.datasets import CIFAR10
-#from torchvision.transforms import ToTensor
+from torchvision.datasets import CIFAR10
+from torchvision.transforms import ToTensor
 from torch.utils.data import DataLoader, Subset, random_split
 from torch import optim
 import torch.multiprocessing as mp
@@ -13,17 +13,27 @@ import time
 import os
 import sys
 
-current_dir = os.path.dirname(os.path.realpath(__file__))
-print(current_dir)
+############################################################
+# ------------- Import from model directory -------------- #
+############################################################
 
-parent_dir = os.path.dirname(current_dir)
-print(parent_dir)
-
-model_dir = os.path.join(parent_dir, 'model')
-print(model_dir)
+current_dir = os.path.dirname(os.path.realpath(__file__))   # current directory
+parent_dir = os.path.dirname(current_dir)                   # parent directory
+model_dir = os.path.join(parent_dir, 'model')               # model directory
 
 if model_dir not in sys.path:
-    sys.path.append(model_dir)
+    sys.path.append(model_dir)  # add model to pythonpath
 
 from model import SmallCNN
 
+############################################################
+# --------------------- End imports ---------------------- #
+############################################################
+
+data_path = os.path.join(parent_dir, "data")
+
+
+
+net = SmallCNN()
+
+print(net)
