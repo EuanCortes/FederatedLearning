@@ -1,7 +1,5 @@
 import torch
 from torch import nn
-#from torchvision.datasets import CIFAR10
-#from torchvision.transforms import ToTensor
 from torch.utils.data import DataLoader, Subset
 from torch import optim
 import torch.multiprocessing as mp
@@ -9,6 +7,7 @@ import torch.multiprocessing as mp
 import numpy as np
 import matplotlib.pyplot as plt
 import time
+import copy
 
 import os
 import sys
@@ -26,6 +25,7 @@ if model_dir not in sys.path:
 
 from model import SmallCNN
 from dataset import load_data, split_data
+from federated_learning import client_update, fed_avg
 
 ############################################################
 # --------------------- End imports ---------------------- #
@@ -33,6 +33,20 @@ from dataset import load_data, split_data
 
 
 if __name__ == "__main__":
+
+    NUM_CLIENTS = int(sys.argv[1])          # number of clients
+    C = float(sys.argv[2])                  # fraction of clients to participate in each round
+    CLIENTS_PER_ROUND = int(NUM_CLIENTS * C)    # number of clients to participate in each round
+    MAX_ROUNDS = int(sys.argv[3])       # maximum number of rounds
+    NUM_LOCAL_EPOCHS = int(sys.argv[4]) # number of local epochs
+    
+
+    # set up torch multiprocessing
+    mp.set_start_method('fork') # for UNIX 
+    manager = mp.Manager()
+    return_dict = manager.dict()
+    processes = []
+
 
     # load data and prepare dataloaders
     trainset, valset, testset = load_data()
@@ -46,49 +60,67 @@ if __name__ == "__main__":
     testloader = DataLoader(testset, batch_size=64,
                             shuffle=True, num_workers=4)
 
-    # select cuda device
-    device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
-    print(f"device: {device}")
+    # prepare client partitions
+    client_indices = split_data(trainset, num_clients=NUM_CLIENTS, iid=True)
 
-    #initialise net, optimizer and criterion
-    net = SmallCNN().to(device)
-    criterion = nn.CrossEntropyLoss()
-    optimizer = optim.Adam(net.parameters(), lr=0.001)
+    clients = [
+        DataLoader(Subset(trainset, client_indices[i]), batch_size=64, shuffle=True, num_workers=4)
+        for i in range(NUM_CLIENTS)
+    ]
 
-
-
-    training_loss = []
+    # store training loss and validation accuracy
+    avg_train_loss = []
     val_accuracy = []
 
-    epoch = 0
+    round = 0
     valid_acc = 0
 
-    while valid_acc < 0.77:
+    net = SmallCNN()
+    current_weights = copy.deepcopy(net.state_dict())
+    device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
+    net = net.to(device)
 
-        epoch += 1
+    while valid_acc < 0.77 and round < MAX_ROUNDS:
 
-        net.train()
-        running_loss = 0.0
-        for i, (input, labels) in enumerate(trainloader):
-            # get the inputs; data is a list of [inputs, labels]
-            inputs, labels = input.to(device), labels.to(device)
+        round += 1
 
-            # zero the parameter gradients
-            optimizer.zero_grad()
+        #current_weights_cpu = {k: v.cpu() for k, v in current_weights.items()}
 
-            # forward + backward + optimize
-            outputs = net(inputs)
-            loss = criterion(outputs, labels)
-            loss.backward()
-            optimizer.step()
+        client_ids = torch.randperm(NUM_CLIENTS)[:CLIENTS_PER_ROUND] # random selection of clients to participate
+        local_weights = []
+        temp_avg_loss = 0
 
-            # print statistics
-            running_loss += loss.item()
-            
-        training_loss.append(running_loss / len(trainloader))
+        batched_clients = torch.split(client_ids, 4)
 
-        #if epoch % 2 == 1:
-        if True:
+        for ids in batched_clients:
+            for i in ids:
+                cuda_id = i % torch.cuda.device_count()
+                p = mp.Process(target=client_update, args=(cuda_id, clients[i], SmallCNN, current_weights, NUM_LOCAL_EPOCHS))
+                p.start()
+                processes.append(p)
+
+            for p in processes:
+                p.join()
+
+            for i in ids:
+                local_weights.append(return_dict[i][0])
+                temp_avg_loss += return_dict[i][1]
+
+
+        avg_train_loss.append(temp_avg_loss / CLIENTS_PER_ROUND)
+        
+        print(f"Round {round+1} done")
+        print(f"training loss: {avg_train_loss[-1]:.3f}")
+
+        new_weights = fed_avg(local_weights)    
+        print("Federated Averaging done")
+
+        current_weights = new_weights
+
+
+        # validation of model every 5 rounds
+        if round % 5 == 4:
+            net.load_state_dict(current_weights)
             net.eval()
 
             correct = 0
@@ -105,18 +137,20 @@ if __name__ == "__main__":
                     correct += (predicted == labels).sum().item()
             val_acc = correct / total
             val_accuracy.append(val_acc)
-            print(f"Epoch {epoch},\n  Train loss: {training_loss[-1]},\n  Validation Accuracy: {val_acc * 100:.1f}%")
+            print(f"Round {round},\n  Train loss: {avg_train_loss[-1]},\n  Validation Accuracy: {val_acc * 100:.1f}%")
 
     print('Finished Training')
 
     fig, axs = plt.subplots(1, 2, figsize=(15, 5))
-    axs[0].plot(np.arange(epoch), training_loss, label="training loss")
-    axs[1].plot(np.arange(epoch), np.array(val_accuracy) / 100, label="validation accuracy")
+    axs[0].plot(np.arange(round), avg_train_loss, label="training loss")
+    axs[0].title("Training Loss")
+    axs[1].plot(np.arange(0, round, 5), np.array(val_accuracy) * 100, label="validation accuracy")
+    axs[1].title("validation accuracy")
 
     for ax in axs:
         ax.set_xlabel("Epoch")
         ax.legend()
-    plt.show()
+    plt.savefig("training_plot.png")
 
     # test network
 

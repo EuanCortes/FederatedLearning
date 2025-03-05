@@ -14,12 +14,12 @@ import os
 import sys
 
 ############################################################
-# ------------- Import from model directory -------------- #
+# ------------- Import from utils directory -------------- #
 ############################################################
 
 current_dir = os.path.dirname(os.path.realpath(__file__))   # current directory
 parent_dir = os.path.dirname(current_dir)                   # parent directory
-model_dir = os.path.join(parent_dir, 'model')               # model directory
+model_dir = os.path.join(parent_dir, 'utils')               # model directory
 
 if model_dir not in sys.path:
     sys.path.append(model_dir)  # add model to pythonpath
