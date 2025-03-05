@@ -5,7 +5,7 @@
 #BSUB -q gpuv100
 
 ### -- set the job Name --
-#BSUB -J gpu_parallelism_test_4
+#BSUB -J gpu_parallelism_test_nospan
 
 ### -- ask for number of cores (default: 1) --
 #BSUB -n 16
@@ -16,9 +16,11 @@
 ### -- set walltime limit: hh:mm --  maximum 24 hours for GPU-queues right now
 #BSUB -W 00:10
 
-# request 5GB of system-memory
+# request system-memory
 #BSUB -R "rusage[mem=20GB]"
-#BSUB -R "span[hosts=1]"
+
+
+###BSUB -R "span[hosts=1]"
 
 ### -- Specify the output and error file. %J is the job-id --
 ### -- -o and -e mean append, -oo and -eo mean overwrite --

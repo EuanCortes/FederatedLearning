@@ -1,0 +1,113 @@
+loading data:
+  number of training samples: 40000
+  number of validation samples: 10000
+  number of test samples: 10000
+
+splitting data:
+  100 splits with 400 samples each
+
+num cuda devices: 2
+training 1 clients on 1 gpu
+Time taken to train 1 client(s) on 1 gpu: 21.293 seconds
+
+training 2 clients on 1 gpu
+Time taken to train 2 client(s) on 1 gpu: 13.880 seconds
+
+training 3 clients on 1 gpu
+Time taken to train 3 client(s) on 1 gpu: 19.842 seconds
+
+training 4 clients on 1 gpu
+Time taken to train 4 client(s) on 1 gpu: 25.509 seconds
+
+training 5 clients on 1 gpu
+Time taken to train 5 client(s) on 1 gpu: 31.618 seconds
+
+training 6 clients on 1 gpu
+Time taken to train 6 client(s) on 1 gpu: 37.651 seconds
+
+training 7 clients on 1 gpu
+Time taken to train 7 client(s) on 1 gpu: 44.048 seconds
+
+training 8 clients on 1 gpu
+Time taken to train 8 client(s) on 1 gpu: 50.003 seconds
+
+training 9 clients on 1 gpu
+Time taken to train 9 client(s) on 1 gpu: 55.349 seconds
+
+training 10 clients on 1 gpu
+Time taken to train 10 client(s) on 1 gpu: 61.132 seconds
+
+
+------------------------------------------------------------
+Sender: LSF System <lsfadmin@hpc.dtu.dk>
+Subject: Job 24278624: <gpu_parallelism_test_2> in cluster <dcc> Done
+
+Job <gpu_parallelism_test_2> was submitted from host <n-62-27-22> by user <s204790> in cluster <dcc> at Tue Mar  4 23:01:40 2025
+Job was executed on host(s) <8*n-62-20-4>, in queue <gpuv100>, as user <s204790> in cluster <dcc> at Tue Mar  4 23:24:11 2025
+</zhome/94/5/156250> was used as the home directory.
+</zhome/94/5/156250/Documents/FederatedLearning/FederatedLearning/HPC> was used as the working directory.
+Started at Tue Mar  4 23:24:11 2025
+Terminated at Tue Mar  4 23:31:08 2025
+Results reported at Tue Mar  4 23:31:08 2025
+
+Your job looked like:
+
+------------------------------------------------------------
+# LSBATCH: User input
+#!/bin/bash
+
+### General options
+### –- specify queue --
+#BSUB -q gpuv100
+
+### -- set the job Name --
+#BSUB -J gpu_parallelism_test_2
+
+### -- ask for number of cores (default: 1) --
+#BSUB -n 8
+
+### -- Select the resources: 1 gpu in exclusive process mode --
+#BSUB -gpu "num=2:mode=exclusive_process"
+
+### -- set walltime limit: hh:mm --  maximum 24 hours for GPU-queues right now
+#BSUB -W 00:10
+
+# request 5GB of system-memory
+#BSUB -R "rusage[mem=20GB]"
+#BSUB -R "span[hosts=1]"
+
+### -- Specify the output and error file. %J is the job-id --
+### -- -o and -e mean append, -oo and -eo mean overwrite --
+#BSUB -o /zhome/94/5/156250/Documents/FederatedLearning/FederatedLearning/HPC/outputs/gpu_parallelism_test_%J.out
+#BSUB -e /zhome/94/5/156250/Documents/FederatedLearning/FederatedLearning/HPC/outputs/gpu_parallelism_test_%J.err
+# -- end of LSF options --
+
+# module load python3/3.12.4
+source /zhome/94/5/156250/Documents/FederatedLearning/.venv/bin/activate
+
+python3 gpu_parallelism_test.py
+------------------------------------------------------------
+
+Successfully completed.
+
+Resource usage summary:
+
+    CPU time :                                   436.00 sec.
+    Max Memory :                                 1308 MB
+    Average Memory :                             1083.80 MB
+    Total Requested Memory :                     163840.00 MB
+    Delta Memory :                               162532.00 MB
+    Max Swap :                                   -
+    Max Processes :                              7
+    Max Threads :                                11
+    Run time :                                   418 sec.
+    Turnaround time :                            1768 sec.
+
+The output (if any) is above this job summary.
+
+
+
+PS:
+
+Read file </zhome/94/5/156250/Documents/FederatedLearning/FederatedLearning/HPC/outputs/gpu_parallelism_test_24278624.err> for stderr output of this job.
+

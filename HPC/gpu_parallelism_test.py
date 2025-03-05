@@ -59,7 +59,8 @@ if __name__ == "__main__":
     trainset, valset, testset = load_data(validation_percent=0.2)
     client_indices = split_data(trainset, num_clients=num_clients, iid=True)
      
-    mp.set_start_method('spawn', force=True)
+    #mp.set_start_method('spawn', force=True)   # for windows
+    mp.set_start_method('fork') # for UNIX 
     manager = mp.Manager()
     return_dict = manager.dict()
     processes = []
@@ -67,7 +68,7 @@ if __name__ == "__main__":
     print(f"num cuda devices: {torch.cuda.device_count()}")
 
     for i in range(10):
-        print(f"training {i+1} clients on 1 gpu")
+        print(f"training {i+1} clients on {torch.cuda.device_count()} gpu(s)")
         t1 = time.perf_counter()
         dataloaders = [
              DataLoader(Subset(trainset, client_indices[j]), batch_size=32, shuffle=True) for j in range(i+1)
