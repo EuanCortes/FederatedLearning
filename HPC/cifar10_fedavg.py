@@ -42,7 +42,7 @@ if __name__ == "__main__":
     
 
     # set up torch multiprocessing
-    mp.set_start_method('fork') # for UNIX 
+    mp.set_start_method('spawn', force=True)
     manager = mp.Manager()
     return_dict = manager.dict()
     processes = []
@@ -92,24 +92,25 @@ if __name__ == "__main__":
 
         batched_clients = torch.split(client_ids, 4)
 
+        return_dict.clear()
         for ids in batched_clients:
             for i in ids:
                 cuda_id = i % torch.cuda.device_count()
-                p = mp.Process(target=client_update, args=(cuda_id, clients[i], SmallCNN, current_weights, NUM_LOCAL_EPOCHS))
+                p = mp.Process(target=client_update, args=(cuda_id, i, clients[i], SmallCNN, current_weights, NUM_LOCAL_EPOCHS, return_dict))
                 p.start()
                 processes.append(p)
 
             for p in processes:
                 p.join()
 
-            for i in ids:
-                local_weights.append(return_dict[i][0])
-                temp_avg_loss += return_dict[i][1]
+            for i, (state_dict, loss) in return_dict.items():
+                local_weights.append(state_dict)
+                temp_avg_loss += loss
 
 
         avg_train_loss.append(temp_avg_loss / CLIENTS_PER_ROUND)
         
-        print(f"Round {round+1} done")
+        print(f"Round {round} done")
         print(f"training loss: {avg_train_loss[-1]:.3f}")
 
         new_weights = fed_avg(local_weights)    
@@ -119,7 +120,8 @@ if __name__ == "__main__":
 
 
         # validation of model every 5 rounds
-        if round % 5 == 4:
+        #if round % 5 == 4:
+        if True:
             net.load_state_dict(current_weights)
             net.eval()
 

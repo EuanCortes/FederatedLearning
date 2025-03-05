@@ -5,11 +5,13 @@ from torch import nn
 import copy
 
 
-def client_update(cuda_id : int, 
+def client_update(cuda_id : int,
+                  client_id : int, 
                   dataloader : DataLoader, 
                   Net : nn.Module,
                   state_dict : dict, 
                   epochs : int,
+                  return_dict : dict,
                   criterion=nn.CrossEntropyLoss(), 
                   lr=0.001, 
                   weight_decay=0):
@@ -46,9 +48,9 @@ def client_update(cuda_id : int,
 
             epoch_loss += loss.item()
 
-    state_dict = {k: v.cpu() for k, v in net.state_dict.items()}
+    state_dict = {k: v.cpu() for k, v in net.state_dict().items()}
     
-    return copy.deepcopy(state_dict), epoch_loss / len(dataloader)
+    return_dict[client_id] = (state_dict, epoch_loss / len(dataloader))
 
 
 
