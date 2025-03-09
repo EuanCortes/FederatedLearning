@@ -57,17 +57,18 @@ def client_update(state_dict, device, dataloader, epochs, stream):
 
                 epoch_loss += loss.item()
 
-    print("Client finished training")
-    return net.state_dict(), epoch_loss / len(dataloader)
+    print("Client finished training", flush=True)
+    cpu_state_dict = {k: v.cpu() for k, v in net.state_dict().items()}
+    return cpu_state_dict, epoch_loss / len(dataloader)
     
 
-def gpu_process(cuda_id, client_ids, dataloaders, state_dict, epochs, return_dict, max_streams=2):
+def gpu_process(cuda_id, client_ids, dataloaders, state_dict, epochs, return_dict, max_streams=4):
     '''
     gpu process for training
     '''
     device = torch.device(f"cuda:{cuda_id}")
     torch.cuda.set_device(device)
-
+    print(f"gpu {cuda_id} training clients : {client_ids}", flush=True)
     streams = [torch.cuda.Stream() for _ in range(max_streams)]
 
     client_updates = {}
@@ -116,17 +117,18 @@ if __name__ == "__main__":
 
     ####################### hyperparameters ####################
     NUM_CLIENTS = 100
-    C = 0.1
+    C = 0.2
     CLIENTS_PER_ROUND = int(NUM_CLIENTS * C)
-    MAX_ROUNDS = 10
-    NUM_LOCAL_EPOCHS = 1
-    NUM_GPUS = torch.cuda.device_count()
+    MAX_ROUNDS = 200
+    NUM_LOCAL_EPOCHS = 10
+    #NUM_GPUS = torch.cuda.device_count()
+    NUM_GPUS = 2
     ############################################################
 
 
 
     ####################### load data ##########################
-    trainset, valset, testset = load_data(validation_percent=0.5)
+    trainset, valset, testset = load_data(validation_percent=0.2)
 
     trainloader = DataLoader(trainset, batch_size=64,
                             shuffle=True, num_workers=0)

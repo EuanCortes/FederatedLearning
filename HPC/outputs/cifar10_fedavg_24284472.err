@@ -1,0 +1,114 @@
+Loaded dependency [python3/3.12.2]: sqlite3/3.45.1
+Loaded dependency [python3/3.12.2]: gcc/12.3.0-binutils-2.40
+Loaded module: python3/3.12.2
+
+Loading python3/3.12.2
+  Loading requirement: sqlite3/3.45.1 gcc/12.3.0-binutils-2.40
+Process Process-5:
+Process Process-2:
+Process Process-4:
+Process Process-3:
+Traceback (most recent call last):
+Traceback (most recent call last):
+Traceback (most recent call last):
+Traceback (most recent call last):
+  File "/appl9/python/3.12.2/lib/python3.12/multiprocessing/process.py", line 314, in _bootstrap
+    self.run()
+  File "/appl9/python/3.12.2/lib/python3.12/multiprocessing/process.py", line 314, in _bootstrap
+    self.run()
+  File "/appl9/python/3.12.2/lib/python3.12/multiprocessing/process.py", line 314, in _bootstrap
+    self.run()
+  File "/appl9/python/3.12.2/lib/python3.12/multiprocessing/process.py", line 314, in _bootstrap
+    self.run()
+  File "/appl9/python/3.12.2/lib/python3.12/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/appl9/python/3.12.2/lib/python3.12/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/appl9/python/3.12.2/lib/python3.12/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/zhome/94/5/156250/Documents/FederatedLearning/FederatedLearning/utils/federated_learning.py", line 30, in client_update
+    net = Net().to(device)
+          ^^^^^^^^^^^^^^^^
+  File "/appl9/python/3.12.2/lib/python3.12/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/zhome/94/5/156250/Documents/FederatedLearning/FederatedLearning/utils/federated_learning.py", line 30, in client_update
+    net = Net().to(device)
+          ^^^^^^^^^^^^^^^^
+  File "/zhome/94/5/156250/Documents/FederatedLearning/FederatedLearning/utils/federated_learning.py", line 30, in client_update
+    net = Net().to(device)
+          ^^^^^^^^^^^^^^^^
+  File "/zhome/94/5/156250/Documents/FederatedLearning/.venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1343, in to
+    return self._apply(convert)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/94/5/156250/Documents/FederatedLearning/FederatedLearning/utils/federated_learning.py", line 30, in client_update
+    net = Net().to(device)
+          ^^^^^^^^^^^^^^^^
+  File "/zhome/94/5/156250/Documents/FederatedLearning/.venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 903, in _apply
+    module._apply(fn)
+  File "/zhome/94/5/156250/Documents/FederatedLearning/.venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1343, in to
+    return self._apply(convert)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/94/5/156250/Documents/FederatedLearning/.venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1343, in to
+    return self._apply(convert)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/94/5/156250/Documents/FederatedLearning/.venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1343, in to
+    return self._apply(convert)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/94/5/156250/Documents/FederatedLearning/.venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 903, in _apply
+    module._apply(fn)
+  File "/zhome/94/5/156250/Documents/FederatedLearning/.venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 903, in _apply
+    module._apply(fn)
+  File "/zhome/94/5/156250/Documents/FederatedLearning/.venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 903, in _apply
+    module._apply(fn)
+  File "/zhome/94/5/156250/Documents/FederatedLearning/.venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 903, in _apply
+    module._apply(fn)
+  File "/zhome/94/5/156250/Documents/FederatedLearning/.venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 930, in _apply
+    param_applied = fn(param)
+                    ^^^^^^^^^
+  File "/zhome/94/5/156250/Documents/FederatedLearning/.venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 903, in _apply
+    module._apply(fn)
+  File "/zhome/94/5/156250/Documents/FederatedLearning/.venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 903, in _apply
+    module._apply(fn)
+  File "/zhome/94/5/156250/Documents/FederatedLearning/.venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 903, in _apply
+    module._apply(fn)
+  File "/zhome/94/5/156250/Documents/FederatedLearning/.venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1329, in convert
+    return t.to(
+           ^^^^^
+  File "/zhome/94/5/156250/Documents/FederatedLearning/.venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 930, in _apply
+    param_applied = fn(param)
+                    ^^^^^^^^^
+  File "/zhome/94/5/156250/Documents/FederatedLearning/.venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 930, in _apply
+    param_applied = fn(param)
+                    ^^^^^^^^^
+  File "/zhome/94/5/156250/Documents/FederatedLearning/.venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 930, in _apply
+    param_applied = fn(param)
+                    ^^^^^^^^^
+  File "/zhome/94/5/156250/Documents/FederatedLearning/.venv/lib/python3.12/site-packages/torch/cuda/__init__.py", line 305, in _lazy_init
+    raise RuntimeError(
+  File "/zhome/94/5/156250/Documents/FederatedLearning/.venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1329, in convert
+    return t.to(
+           ^^^^^
+  File "/zhome/94/5/156250/Documents/FederatedLearning/.venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1329, in convert
+    return t.to(
+           ^^^^^
+  File "/zhome/94/5/156250/Documents/FederatedLearning/.venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1329, in convert
+    return t.to(
+           ^^^^^
+  File "/zhome/94/5/156250/Documents/FederatedLearning/.venv/lib/python3.12/site-packages/torch/cuda/__init__.py", line 305, in _lazy_init
+    raise RuntimeError(
+  File "/zhome/94/5/156250/Documents/FederatedLearning/.venv/lib/python3.12/site-packages/torch/cuda/__init__.py", line 305, in _lazy_init
+    raise RuntimeError(
+  File "/zhome/94/5/156250/Documents/FederatedLearning/.venv/lib/python3.12/site-packages/torch/cuda/__init__.py", line 305, in _lazy_init
+    raise RuntimeError(
+RuntimeError: Cannot re-initialize CUDA in forked subprocess. To use CUDA with multiprocessing, you must use the 'spawn' start method
+RuntimeError: Cannot re-initialize CUDA in forked subprocess. To use CUDA with multiprocessing, you must use the 'spawn' start method
+RuntimeError: Cannot re-initialize CUDA in forked subprocess. To use CUDA with multiprocessing, you must use the 'spawn' start method
+RuntimeError: Cannot re-initialize CUDA in forked subprocess. To use CUDA with multiprocessing, you must use the 'spawn' start method
+Traceback (most recent call last):
+  File "/zhome/94/5/156250/Documents/FederatedLearning/FederatedLearning/HPC/cifar10_fedavg.py", line 106, in <module>
+    local_weights.append(return_dict[i][0])
+                         ~~~~~~~~~~~^^^
+  File "<string>", line 2, in __getitem__
+  File "/appl9/python/3.12.2/lib/python3.12/multiprocessing/managers.py", line 836, in _callmethod
+    raise convert_to_error(kind, result)
+KeyError: tensor(26)

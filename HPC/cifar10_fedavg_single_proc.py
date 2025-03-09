@@ -61,38 +61,41 @@ def validate(valloader, current_weights):
 
 if __name__ == "__main__":
 
-    NUM_CLIENTS = int(sys.argv[1])          # number of clients
-    C = float(sys.argv[2])                  # fraction of clients to participate in each round
-    CLIENTS_PER_ROUND = int(NUM_CLIENTS * C)    # number of clients to participate in each round
-    MAX_ROUNDS = int(sys.argv[3])       # maximum number of rounds
-    NUM_LOCAL_EPOCHS = int(sys.argv[4]) # number of local epochs
-    
-
-    # set up torch multiprocessing
-    mp.set_start_method('spawn', force=True)
-    manager = mp.Manager()
-    return_dict = manager.dict()
+    ####################### hyperparameters ####################
+    NUM_CLIENTS = 100
+    C = 0.5
+    CLIENTS_PER_ROUND = int(NUM_CLIENTS * C)
+    MAX_ROUNDS = 200
+    NUM_LOCAL_EPOCHS = 10
+    ############################################################
 
 
-    # load data and prepare dataloaders
-    trainset, valset, testset = load_data(validation_percent=0.5)
+
+    ####################### load data ##########################
+    trainset, valset, testset = load_data(validation_percent=0.2)
 
     trainloader = DataLoader(trainset, batch_size=64,
-                            shuffle=True, num_workers=4)
-    
-    valloader = DataLoader(valset, batch_size=64,
-                            shuffle=True, num_workers=4)
-    
-    testloader = DataLoader(testset, batch_size=64,
-                            shuffle=True, num_workers=4)
+                            shuffle=True, num_workers=0)
 
-    # prepare client partitions
+    valloader = DataLoader(valset, batch_size=64,
+                            shuffle=True, num_workers=0)
+
+    testloader = DataLoader(testset, batch_size=64,
+                            shuffle=True, num_workers=0)
+    ############################################################
+
+
+    ############# prepare client partitions ####################
     client_indices = split_data(trainset, num_clients=NUM_CLIENTS, iid=True)
 
     clients = [
-        DataLoader(Subset(trainset, client_indices[i]), batch_size=64, shuffle=True, num_workers=4)
+        DataLoader(Subset(trainset, client_indices[i]), 
+                batch_size=64, 
+                shuffle=True, 
+                num_workers=4)
         for i in range(NUM_CLIENTS)
-    ]
+        ]
+    ############################################################
 
     # store training loss and validation accuracy
     avg_train_loss = []
@@ -116,36 +119,18 @@ if __name__ == "__main__":
         local_weights = []
         temp_avg_loss = 0
 
-        batched_clients = torch.split(client_ids, 2)
+        return_dict = {}
+        for client, dataloader in clients:
+            client_update(0, client, dataloader, SmallCNN, current_weights, NUM_LOCAL_EPOCHS, return_dict)
 
-    
-        for ids in batched_clients:
-            processes = []
-            for i in ids:
-                cuda_id = i % torch.cuda.device_count()
-                p = mp.Process(target=client_update, args=(cuda_id, i, clients[i], SmallCNN, current_weights, NUM_LOCAL_EPOCHS, return_dict))
-                p.start()
-                processes.append(p)
-
-            for p in processes:
-                p.join()
-
-            for i, (state_dict, loss) in return_dict.items():
-                local_weights.append(state_dict)
-                temp_avg_loss += loss
-            
-            return_dict.clear()
-
-
+        
         avg_train_loss.append(temp_avg_loss / CLIENTS_PER_ROUND)
         
         print(f"Round {round} done")
         print(f"training loss: {avg_train_loss[-1]:.3f}")
 
-        new_weights = fed_avg(local_weights)    
+        current_weights = fed_avg(local_weights)    
         print("Federated Averaging done")
-
-        current_weights = new_weights
 
 
         # validation of model every 5 rounds
