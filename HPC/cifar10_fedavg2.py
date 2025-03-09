@@ -119,7 +119,7 @@ if __name__ == "__main__":
     C = 0.1
     CLIENTS_PER_ROUND = int(NUM_CLIENTS * C)
     MAX_ROUNDS = 10
-    NUM_LOCAL_EPOCHS = 5
+    NUM_LOCAL_EPOCHS = 1
     NUM_GPUS = torch.cuda.device_count()
     ############################################################
 
