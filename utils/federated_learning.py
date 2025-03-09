@@ -14,7 +14,8 @@ def client_update(cuda_id : int,
                   return_dict : dict,
                   criterion=nn.CrossEntropyLoss(), 
                   lr=0.001, 
-                  weight_decay=0):
+                  weight_decay=0,
+                  debug=False):
     '''
     client update method for federated learning
 
@@ -33,6 +34,9 @@ def client_update(cuda_id : int,
     net.load_state_dict(state_dict)
     optimizer = optim.Adam(net.parameters(), lr=lr, weight_decay=weight_decay)
     net.train()
+
+    if debug:
+        print(f"Client {client_id} training on device {device}")
 
     for epoch in range(epochs):
         epoch_loss = 0
