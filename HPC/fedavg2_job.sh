@@ -2,10 +2,10 @@
 
 ### General options
 ### –- specify queue --
-#BSUB -q gpuv100
+#BSUB -q gpua100
 
 ### -- set the job Name --
-#BSUB -J fedavg2
+#BSUB -J fedavg2_2gpu
 
 ### -- ask for number of cores (default: 1) --
 #BSUB -n 8
@@ -14,7 +14,7 @@
 #BSUB -gpu "num=2:mode=exclusive_process"
 
 ### -- set walltime limit: hh:mm --  maximum 24 hours for GPU-queues right now
-#BSUB -W 01:00
+#BSUB -W 02:00
 
 # request system-memory
 #BSUB -R "rusage[mem=16GB]"
@@ -24,8 +24,8 @@
 
 ### -- Specify the output and error file. %J is the job-id --
 ### -- -o and -e mean append, -oo and -eo mean overwrite --
-#BSUB -o /zhome/94/5/156250/Documents/FederatedLearning/FederatedLearning/HPC/outputs/cifar10_fedavg_%J.out
-#BSUB -e /zhome/94/5/156250/Documents/FederatedLearning/FederatedLearning/HPC/outputs/cifar10_fedavg_%J.err
+#BSUB -o /zhome/94/5/156250/Documents/FederatedLearning/FederatedLearning/HPC/outputs/cifar10_fedavg2_2gpu%J.out
+#BSUB -e /zhome/94/5/156250/Documents/FederatedLearning/FederatedLearning/HPC/outputs/cifar10_fedavg2_2gpu%J.err
 # -- end of LSF options --
 
 # module load python3/3.12.4

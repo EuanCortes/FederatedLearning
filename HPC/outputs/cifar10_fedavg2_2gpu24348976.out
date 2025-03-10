@@ -1,0 +1,125 @@
+loading data:
+  number of training samples: 40000
+  number of validation samples: 10000
+  number of test samples: 10000
+
+splitting data:
+  100 splits with 400 samples each
+
+Number of GPUs:  2
+assigning clients to GPUs
+gpu 0 training clients : tensor([70, 34, 35, 93, 19, 86, 29, 12, 38, 54])
+gpu 1 training clients : tensor([13, 60, 96, 15, 40, 71, 50, 51, 53, 76])
+Client finished training
+Client finished training
+Client finished training
+Client finished training
+Client finished training
+Client finished training
+Client finished training
+Client finished training
+Client finished training
+Client finished training
+Client finished training
+Client finished training
+Client finished training
+Client finished training
+Client finished training
+Client finished training
+Client finished training
+Client finished training
+Client finished training
+GPU 0 finished training clients tensor([70, 34, 35, 93, 19, 86, 29, 12, 38, 54])
+Client finished training
+GPU 1 finished training clients tensor([13, 60, 96, 15, 40, 71, 50, 51, 53, 76])
+Round 2, Validation accuracy: 0.3547
+assigning clients to GPUs
+gpu 0 training clients : tensor([ 5, 64, 23,  2, 37, 24, 71, 93, 33, 98])
+gpu 1 training clients : tensor([59, 51,  3, 35, 66, 15,  1, 62, 65, 84])
+Client finished training
+Client finished training
+Client finished training
+Client finished training
+Client finished training
+Client finished training
+Client finished training
+Client finished training
+Client finished training
+Client finished training
+GPU 1 finished training clients tensor([59, 51,  3, 35, 66, 15,  1, 62, 65, 84])
+
+------------------------------------------------------------
+Sender: LSF System <lsfadmin@hpc.dtu.dk>
+Subject: Job 24348976: <fedavg2_2gpu> in cluster <dcc> Exited
+
+Job <fedavg2_2gpu> was submitted from host <n-62-20-9> by user <s204790> in cluster <dcc> at Sun Mar  9 23:07:54 2025
+Job was executed on host(s) <8*n-62-20-13>, in queue <gpuv100>, as user <s204790> in cluster <dcc> at Sun Mar  9 23:23:54 2025
+</zhome/94/5/156250> was used as the home directory.
+</zhome/94/5/156250/Documents/FederatedLearning/FederatedLearning/HPC> was used as the working directory.
+Started at Sun Mar  9 23:23:54 2025
+Terminated at Mon Mar 10 00:26:58 2025
+Results reported at Mon Mar 10 00:26:58 2025
+
+Your job looked like:
+
+------------------------------------------------------------
+# LSBATCH: User input
+#!/bin/bash
+
+### General options
+### –- specify queue --
+#BSUB -q gpuv100
+
+### -- set the job Name --
+#BSUB -J fedavg2_2gpu
+
+### -- ask for number of cores (default: 1) --
+#BSUB -n 8
+
+### -- Select the resources: 1 gpu in exclusive process mode --
+#BSUB -gpu "num=2:mode=exclusive_process"
+
+### -- set walltime limit: hh:mm --  maximum 24 hours for GPU-queues right now
+#BSUB -W 02:00
+
+# request system-memory
+#BSUB -R "rusage[mem=16GB]"
+
+
+#BSUB -R "span[hosts=1]"
+
+### -- Specify the output and error file. %J is the job-id --
+### -- -o and -e mean append, -oo and -eo mean overwrite --
+#BSUB -o /zhome/94/5/156250/Documents/FederatedLearning/FederatedLearning/HPC/outputs/cifar10_fedavg2_2gpu%J.out
+#BSUB -e /zhome/94/5/156250/Documents/FederatedLearning/FederatedLearning/HPC/outputs/cifar10_fedavg2_2gpu%J.err
+# -- end of LSF options --
+
+# module load python3/3.12.4
+source /zhome/94/5/156250/Documents/FederatedLearning/.venv/bin/activate
+
+python3 cifar10_fedavg2.py
+------------------------------------------------------------
+
+Exited with exit code 1.
+
+Resource usage summary:
+
+    CPU time :                                   4919.54 sec.
+    Max Memory :                                 4474 MB
+    Average Memory :                             3187.38 MB
+    Total Requested Memory :                     131072.00 MB
+    Delta Memory :                               126598.00 MB
+    Max Swap :                                   -
+    Max Processes :                              13
+    Max Threads :                                25
+    Run time :                                   3786 sec.
+    Turnaround time :                            4744 sec.
+
+The output (if any) is above this job summary.
+
+
+
+PS:
+
+Read file </zhome/94/5/156250/Documents/FederatedLearning/FederatedLearning/HPC/outputs/cifar10_fedavg2_2gpu24348976.err> for stderr output of this job.
+
