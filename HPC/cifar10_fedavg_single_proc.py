@@ -63,16 +63,16 @@ if __name__ == "__main__":
 
     ####################### hyperparameters ####################
     NUM_CLIENTS = 100
-    C = 0.5
+    C = 0.2
     CLIENTS_PER_ROUND = int(NUM_CLIENTS * C)
     MAX_ROUNDS = 200
-    NUM_LOCAL_EPOCHS = 10
+    NUM_LOCAL_EPOCHS = 5
     ############################################################
 
 
 
     ####################### load data ##########################
-    trainset, valset, testset = load_data(validation_percent=0.2)
+    trainset, valset, testset = load_data(validation_percent=0.5)
 
     trainloader = DataLoader(trainset, batch_size=64,
                             shuffle=True, num_workers=0)
@@ -120,7 +120,7 @@ if __name__ == "__main__":
         temp_avg_loss = 0
 
         return_dict = {}
-        for client, dataloader in clients:
+        for client, dataloader in enumerate(clients):
             client_update(0, client, dataloader, SmallCNN, current_weights, NUM_LOCAL_EPOCHS, return_dict)
 
         

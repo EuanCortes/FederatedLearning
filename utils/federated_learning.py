@@ -5,38 +5,30 @@ from torch import nn
 import copy
 
 
-def client_update(cuda_id : int,
-                  client_id : int, 
+def client_update(device : torch.device,
                   dataloader : DataLoader, 
                   Net : nn.Module,
-                  state_dict : dict, 
                   epochs : int,
-                  return_dict : dict,
                   criterion=nn.CrossEntropyLoss(), 
                   lr=0.001, 
-                  weight_decay=0,
-                  debug=False):
+                  weight_decay=0):
     '''
     client update method for federated learning
 
-    :param cuda_id:     the cuda device id to use
+    :param device:      the device to train the model on
     :param dataloader:  the dataloader for the local dataset
-    :param state_dict:  the state dictionary of the global model
-    :param criterion:   the loss function to use for training
+    :param net:         the neural network model
     :param epochs:      the number of epochs to train
+    :param criterion:   the loss function to use for training
     :param lr:          the learning rate for training
     :param weight_decay: the weight decay for training
 
     return:             the state dictionary of the trained model and the average batch loss
     '''
-    device = torch.device(f"cuda:{cuda_id}")
     net = Net().to(device)
     net.load_state_dict(state_dict)
     optimizer = optim.Adam(net.parameters(), lr=lr, weight_decay=weight_decay)
     net.train()
-
-    if debug:
-        print(f"Client {client_id} training on device {device}")
 
     for epoch in range(epochs):
         epoch_loss = 0
@@ -54,7 +46,7 @@ def client_update(cuda_id : int,
 
     state_dict = {k: v.cpu() for k, v in net.state_dict().items()}
     
-    return_dict[client_id] = (state_dict, epoch_loss / len(dataloader))
+    return state_dict, epoch_loss / len(dataloader)
 
 
 
