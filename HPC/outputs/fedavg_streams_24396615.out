@@ -1,0 +1,1386 @@
+Running simulation with 1 concurrent streams
+loading data:
+  number of training samples: 40000
+  number of validation samples: 10000
+  number of test samples: 10000
+
+splitting data:
+  100 splits with 400 samples each
+
+Running simulation on device: cuda:0
+
+Starting round 1
+Selected clients: [17, 20, 2, 49, 82, 79, 74, 47, 39, 9]
+FedAvg complete
+Round 1 validation accuracy: 0.246
+
+Starting round 2
+Selected clients: [1, 34, 78, 95, 9, 70, 71, 57, 60, 25]
+FedAvg complete
+Round 2 validation accuracy: 0.452
+
+Starting round 3
+Selected clients: [47, 6, 56, 11, 1, 60, 22, 74, 58, 59]
+FedAvg complete
+Round 3 validation accuracy: 0.516
+
+Starting round 4
+Selected clients: [44, 2, 46, 82, 59, 5, 18, 17, 24, 48]
+FedAvg complete
+Round 4 validation accuracy: 0.553
+
+Starting round 5
+Selected clients: [79, 32, 50, 0, 12, 75, 23, 85, 19, 90]
+FedAvg complete
+Round 5 validation accuracy: 0.571
+
+Starting round 6
+Selected clients: [94, 83, 78, 33, 79, 91, 70, 84, 27, 40]
+FedAvg complete
+Round 6 validation accuracy: 0.589
+
+Starting round 7
+Selected clients: [3, 46, 37, 71, 35, 86, 27, 63, 61, 85]
+FedAvg complete
+Round 7 validation accuracy: 0.613
+
+Starting round 8
+Selected clients: [38, 87, 26, 74, 15, 67, 10, 24, 8, 82]
+FedAvg complete
+Round 8 validation accuracy: 0.614
+
+Starting round 9
+Selected clients: [39, 36, 72, 87, 67, 81, 89, 5, 41, 60]
+FedAvg complete
+Round 9 validation accuracy: 0.631
+
+Starting round 10
+Selected clients: [76, 88, 87, 44, 35, 96, 72, 80, 77, 57]
+FedAvg complete
+Round 10 validation accuracy: 0.644
+
+Starting round 11
+Selected clients: [14, 31, 13, 30, 77, 86, 75, 38, 92, 4]
+FedAvg complete
+Round 11 validation accuracy: 0.646
+
+Starting round 12
+Selected clients: [80, 68, 64, 3, 85, 91, 32, 58, 21, 65]
+FedAvg complete
+Round 12 validation accuracy: 0.666
+
+Starting round 13
+Selected clients: [44, 69, 24, 99, 87, 66, 35, 13, 36, 45]
+FedAvg complete
+Round 13 validation accuracy: 0.672
+
+Starting round 14
+Selected clients: [0, 50, 79, 15, 80, 96, 72, 56, 32, 9]
+FedAvg complete
+Round 14 validation accuracy: 0.671
+
+Starting round 15
+Selected clients: [81, 10, 22, 96, 59, 41, 68, 1, 0, 2]
+FedAvg complete
+Round 15 validation accuracy: 0.676
+
+Starting round 16
+Selected clients: [86, 52, 20, 56, 98, 82, 40, 60, 85, 92]
+FedAvg complete
+Round 16 validation accuracy: 0.681
+
+Starting round 17
+Selected clients: [57, 45, 35, 51, 3, 4, 64, 26, 98, 70]
+FedAvg complete
+Round 17 validation accuracy: 0.691
+
+Starting round 18
+Selected clients: [84, 56, 26, 29, 71, 18, 60, 21, 12, 92]
+FedAvg complete
+Round 18 validation accuracy: 0.689
+
+Starting round 19
+Selected clients: [40, 22, 11, 69, 53, 18, 60, 14, 17, 63]
+FedAvg complete
+Round 19 validation accuracy: 0.693
+
+Starting round 20
+Selected clients: [78, 48, 90, 68, 53, 70, 58, 14, 82, 0]
+FedAvg complete
+Round 20 validation accuracy: 0.701
+
+Starting round 21
+Selected clients: [2, 5, 36, 95, 7, 99, 96, 22, 21, 70]
+FedAvg complete
+Round 21 validation accuracy: 0.698
+
+Starting round 22
+Selected clients: [61, 16, 18, 84, 4, 44, 21, 82, 55, 97]
+FedAvg complete
+Round 22 validation accuracy: 0.704
+
+Starting round 23
+Selected clients: [23, 51, 84, 68, 55, 13, 31, 78, 53, 38]
+FedAvg complete
+Round 23 validation accuracy: 0.705
+
+Starting round 24
+Selected clients: [59, 25, 61, 14, 48, 45, 76, 92, 99, 86]
+FedAvg complete
+Round 24 validation accuracy: 0.716
+
+Starting round 25
+Selected clients: [60, 20, 68, 18, 65, 15, 12, 41, 31, 75]
+FedAvg complete
+Round 25 validation accuracy: 0.715
+
+Starting round 26
+Selected clients: [63, 41, 93, 15, 24, 71, 80, 33, 16, 10]
+FedAvg complete
+Round 26 validation accuracy: 0.714
+
+Starting round 27
+Selected clients: [2, 79, 6, 47, 11, 45, 36, 58, 8, 28]
+FedAvg complete
+Round 27 validation accuracy: 0.716
+
+Starting round 28
+Selected clients: [96, 69, 71, 68, 57, 99, 2, 94, 11, 63]
+FedAvg complete
+Round 28 validation accuracy: 0.716
+
+Starting round 29
+Selected clients: [34, 31, 89, 17, 80, 86, 26, 9, 14, 87]
+FedAvg complete
+Round 29 validation accuracy: 0.719
+
+Starting round 30
+Selected clients: [78, 19, 9, 96, 62, 79, 2, 52, 82, 81]
+FedAvg complete
+Round 30 validation accuracy: 0.720
+
+Starting round 31
+Selected clients: [18, 23, 45, 93, 26, 62, 22, 91, 25, 42]
+FedAvg complete
+Round 31 validation accuracy: 0.722
+
+Starting round 32
+Selected clients: [80, 18, 77, 24, 23, 75, 16, 14, 27, 15]
+FedAvg complete
+Round 32 validation accuracy: 0.727
+
+Starting round 33
+Selected clients: [99, 27, 52, 15, 29, 54, 85, 75, 13, 21]
+FedAvg complete
+Round 33 validation accuracy: 0.727
+
+Starting round 34
+Selected clients: [28, 50, 16, 40, 77, 69, 96, 91, 32, 74]
+FedAvg complete
+Round 34 validation accuracy: 0.731
+
+Starting round 35
+Selected clients: [42, 83, 47, 89, 82, 3, 48, 14, 92, 37]
+FedAvg complete
+Round 35 validation accuracy: 0.732
+
+Starting round 36
+Selected clients: [96, 94, 63, 41, 4, 14, 19, 87, 85, 58]
+FedAvg complete
+Round 36 validation accuracy: 0.737
+
+Starting round 37
+Selected clients: [15, 3, 22, 76, 70, 45, 56, 79, 44, 71]
+FedAvg complete
+Round 37 validation accuracy: 0.732
+
+Starting round 38
+Selected clients: [88, 65, 59, 20, 68, 43, 77, 76, 42, 9]
+FedAvg complete
+Round 38 validation accuracy: 0.741
+
+Starting round 39
+Selected clients: [41, 64, 0, 21, 36, 13, 65, 72, 42, 88]
+FedAvg complete
+Round 39 validation accuracy: 0.737
+
+Starting round 40
+Selected clients: [90, 33, 42, 60, 52, 44, 20, 84, 68, 24]
+FedAvg complete
+Round 40 validation accuracy: 0.736
+
+Starting round 41
+Selected clients: [10, 53, 65, 63, 79, 41, 64, 40, 92, 94]
+FedAvg complete
+Round 41 validation accuracy: 0.742
+
+Starting round 42
+Selected clients: [77, 78, 99, 2, 14, 70, 62, 28, 38, 4]
+FedAvg complete
+Round 42 validation accuracy: 0.741
+
+Starting round 43
+Selected clients: [69, 35, 23, 52, 70, 81, 76, 42, 72, 97]
+FedAvg complete
+Round 43 validation accuracy: 0.742
+
+Starting round 44
+Selected clients: [72, 82, 39, 74, 87, 67, 43, 76, 79, 66]
+FedAvg complete
+Round 44 validation accuracy: 0.744
+
+Starting round 45
+Selected clients: [46, 98, 15, 3, 31, 57, 86, 17, 32, 39]
+FedAvg complete
+Round 45 validation accuracy: 0.742
+
+Starting round 46
+Selected clients: [50, 79, 42, 92, 61, 87, 93, 51, 65, 60]
+FedAvg complete
+Round 46 validation accuracy: 0.747
+
+Starting round 47
+Selected clients: [7, 93, 67, 88, 2, 47, 86, 99, 58, 6]
+FedAvg complete
+Round 47 validation accuracy: 0.747
+
+Starting round 48
+Selected clients: [42, 68, 24, 71, 89, 96, 76, 9, 84, 65]
+FedAvg complete
+Round 48 validation accuracy: 0.747
+
+Starting round 49
+Selected clients: [92, 55, 91, 34, 0, 90, 43, 42, 26, 35]
+FedAvg complete
+Round 49 validation accuracy: 0.746
+
+Starting round 50
+Selected clients: [6, 93, 21, 57, 13, 94, 14, 68, 95, 47]
+FedAvg complete
+Round 50 validation accuracy: 0.747
+Simulation completed in 315.49 seconds
+
+Running simulation with 2 concurrent streams
+loading data:
+  number of training samples: 40000
+  number of validation samples: 10000
+  number of test samples: 10000
+
+splitting data:
+  100 splits with 400 samples each
+
+Running simulation on device: cuda:0
+
+Starting round 1
+Selected clients: [7, 96, 80, 3, 14, 66, 15, 27, 64, 20]
+FedAvg complete
+Round 1 validation accuracy: 0.183
+
+Starting round 2
+Selected clients: [30, 20, 19, 70, 85, 26, 45, 79, 78, 97]
+FedAvg complete
+Round 2 validation accuracy: 0.386
+
+Starting round 3
+Selected clients: [85, 59, 60, 74, 64, 78, 51, 90, 83, 55]
+FedAvg complete
+Round 3 validation accuracy: 0.485
+
+Starting round 4
+Selected clients: [60, 74, 19, 20, 84, 12, 61, 85, 50, 5]
+FedAvg complete
+Round 4 validation accuracy: 0.532
+
+Starting round 5
+Selected clients: [42, 99, 30, 0, 48, 93, 95, 58, 59, 20]
+FedAvg complete
+Round 5 validation accuracy: 0.554
+
+Starting round 6
+Selected clients: [78, 29, 5, 99, 2, 37, 25, 81, 95, 33]
+FedAvg complete
+Round 6 validation accuracy: 0.588
+
+Starting round 7
+Selected clients: [32, 59, 38, 96, 52, 13, 70, 54, 75, 83]
+FedAvg complete
+Round 7 validation accuracy: 0.602
+
+Starting round 8
+Selected clients: [71, 27, 34, 5, 81, 47, 64, 15, 63, 68]
+FedAvg complete
+Round 8 validation accuracy: 0.619
+
+Starting round 9
+Selected clients: [64, 4, 30, 61, 51, 3, 47, 9, 83, 43]
+FedAvg complete
+Round 9 validation accuracy: 0.629
+
+Starting round 10
+Selected clients: [73, 25, 31, 21, 56, 38, 58, 32, 15, 84]
+FedAvg complete
+Round 10 validation accuracy: 0.650
+
+Starting round 11
+Selected clients: [35, 51, 79, 22, 84, 37, 83, 6, 80, 46]
+FedAvg complete
+Round 11 validation accuracy: 0.654
+
+Starting round 12
+Selected clients: [53, 69, 0, 4, 74, 76, 75, 40, 38, 20]
+FedAvg complete
+Round 12 validation accuracy: 0.664
+
+Starting round 13
+Selected clients: [85, 94, 78, 44, 95, 58, 71, 27, 41, 57]
+FedAvg complete
+Round 13 validation accuracy: 0.673
+
+Starting round 14
+Selected clients: [61, 12, 72, 95, 84, 0, 58, 10, 53, 54]
+FedAvg complete
+Round 14 validation accuracy: 0.673
+
+Starting round 15
+Selected clients: [41, 15, 30, 49, 36, 9, 61, 70, 7, 17]
+FedAvg complete
+Round 15 validation accuracy: 0.684
+
+Starting round 16
+Selected clients: [93, 68, 54, 15, 29, 24, 62, 21, 38, 2]
+FedAvg complete
+Round 16 validation accuracy: 0.682
+
+Starting round 17
+Selected clients: [83, 87, 91, 49, 70, 12, 30, 57, 96, 80]
+FedAvg complete
+Round 17 validation accuracy: 0.693
+
+Starting round 18
+Selected clients: [83, 32, 1, 62, 59, 46, 71, 89, 14, 54]
+FedAvg complete
+Round 18 validation accuracy: 0.694
+
+Starting round 19
+Selected clients: [85, 36, 45, 33, 97, 44, 76, 47, 69, 38]
+FedAvg complete
+Round 19 validation accuracy: 0.692
+
+Starting round 20
+Selected clients: [60, 10, 74, 22, 13, 90, 54, 71, 0, 55]
+FedAvg complete
+Round 20 validation accuracy: 0.695
+
+Starting round 21
+Selected clients: [77, 29, 93, 81, 21, 17, 28, 69, 63, 99]
+FedAvg complete
+Round 21 validation accuracy: 0.709
+
+Starting round 22
+Selected clients: [20, 37, 91, 81, 53, 12, 86, 21, 8, 19]
+FedAvg complete
+Round 22 validation accuracy: 0.708
+
+Starting round 23
+Selected clients: [87, 73, 85, 29, 99, 18, 65, 4, 32, 96]
+FedAvg complete
+Round 23 validation accuracy: 0.711
+
+Starting round 24
+Selected clients: [80, 29, 19, 87, 24, 4, 93, 8, 14, 61]
+FedAvg complete
+Round 24 validation accuracy: 0.716
+
+Starting round 25
+Selected clients: [91, 13, 22, 65, 69, 6, 73, 88, 96, 39]
+FedAvg complete
+Round 25 validation accuracy: 0.718
+
+Starting round 26
+Selected clients: [22, 35, 3, 10, 40, 88, 26, 87, 48, 51]
+FedAvg complete
+Round 26 validation accuracy: 0.716
+
+Starting round 27
+Selected clients: [30, 67, 98, 46, 2, 8, 94, 82, 62, 73]
+FedAvg complete
+Round 27 validation accuracy: 0.722
+
+Starting round 28
+Selected clients: [30, 62, 61, 15, 14, 16, 64, 29, 72, 11]
+FedAvg complete
+Round 28 validation accuracy: 0.721
+
+Starting round 29
+Selected clients: [23, 20, 58, 32, 49, 6, 14, 61, 15, 18]
+FedAvg complete
+Round 29 validation accuracy: 0.725
+
+Starting round 30
+Selected clients: [25, 16, 68, 31, 39, 30, 41, 5, 63, 14]
+FedAvg complete
+Round 30 validation accuracy: 0.723
+
+Starting round 31
+Selected clients: [42, 80, 18, 44, 15, 26, 77, 66, 64, 2]
+FedAvg complete
+Round 31 validation accuracy: 0.726
+
+Starting round 32
+Selected clients: [25, 18, 16, 50, 85, 70, 84, 48, 65, 94]
+FedAvg complete
+Round 32 validation accuracy: 0.724
+
+Starting round 33
+Selected clients: [54, 50, 49, 14, 44, 33, 66, 4, 78, 90]
+FedAvg complete
+Round 33 validation accuracy: 0.730
+
+Starting round 34
+Selected clients: [4, 55, 38, 91, 98, 13, 8, 71, 94, 51]
+FedAvg complete
+Round 34 validation accuracy: 0.735
+
+Starting round 35
+Selected clients: [7, 53, 99, 40, 69, 8, 48, 65, 66, 52]
+FedAvg complete
+Round 35 validation accuracy: 0.732
+
+Starting round 36
+Selected clients: [92, 26, 13, 72, 14, 86, 93, 37, 17, 68]
+FedAvg complete
+Round 36 validation accuracy: 0.735
+
+Starting round 37
+Selected clients: [95, 58, 8, 3, 0, 98, 74, 76, 42, 43]
+FedAvg complete
+Round 37 validation accuracy: 0.735
+
+Starting round 38
+Selected clients: [84, 54, 34, 96, 43, 57, 38, 30, 62, 66]
+FedAvg complete
+Round 38 validation accuracy: 0.739
+
+Starting round 39
+Selected clients: [33, 14, 38, 67, 80, 34, 60, 98, 52, 84]
+FedAvg complete
+Round 39 validation accuracy: 0.738
+
+Starting round 40
+Selected clients: [71, 75, 17, 55, 46, 68, 91, 83, 14, 34]
+FedAvg complete
+Round 40 validation accuracy: 0.737
+
+Starting round 41
+Selected clients: [29, 54, 82, 38, 22, 30, 62, 64, 48, 28]
+FedAvg complete
+Round 41 validation accuracy: 0.742
+
+Starting round 42
+Selected clients: [67, 35, 32, 8, 40, 26, 76, 24, 90, 97]
+FedAvg complete
+Round 42 validation accuracy: 0.742
+
+Starting round 43
+Selected clients: [41, 75, 22, 10, 8, 82, 19, 45, 93, 87]
+FedAvg complete
+Round 43 validation accuracy: 0.743
+
+Starting round 44
+Selected clients: [45, 75, 37, 66, 83, 77, 53, 16, 85, 7]
+FedAvg complete
+Round 44 validation accuracy: 0.746
+
+Starting round 45
+Selected clients: [29, 88, 76, 44, 67, 47, 28, 4, 60, 63]
+FedAvg complete
+Round 45 validation accuracy: 0.749
+
+Starting round 46
+Selected clients: [10, 13, 1, 72, 69, 28, 57, 79, 91, 76]
+FedAvg complete
+Round 46 validation accuracy: 0.749
+
+Starting round 47
+Selected clients: [5, 73, 14, 0, 61, 32, 24, 54, 65, 63]
+FedAvg complete
+Round 47 validation accuracy: 0.744
+
+Starting round 48
+Selected clients: [92, 66, 60, 98, 45, 53, 96, 10, 77, 15]
+FedAvg complete
+Round 48 validation accuracy: 0.749
+
+Starting round 49
+Selected clients: [99, 89, 66, 47, 45, 40, 93, 25, 20, 83]
+FedAvg complete
+Round 49 validation accuracy: 0.752
+
+Starting round 50
+Selected clients: [6, 80, 4, 17, 3, 66, 9, 7, 24, 91]
+FedAvg complete
+Round 50 validation accuracy: 0.751
+Simulation completed in 306.17 seconds
+
+Running simulation with 4 concurrent streams
+loading data:
+  number of training samples: 40000
+  number of validation samples: 10000
+  number of test samples: 10000
+
+splitting data:
+  100 splits with 400 samples each
+
+Running simulation on device: cuda:0
+
+Starting round 1
+Selected clients: [15, 99, 79, 93, 52, 47, 36, 29, 80, 10]
+FedAvg complete
+Round 1 validation accuracy: 0.191
+
+Starting round 2
+Selected clients: [18, 25, 55, 96, 63, 97, 66, 69, 16, 22]
+FedAvg complete
+Round 2 validation accuracy: 0.413
+
+Starting round 3
+Selected clients: [56, 42, 79, 86, 53, 97, 71, 7, 27, 99]
+FedAvg complete
+Round 3 validation accuracy: 0.483
+
+Starting round 4
+Selected clients: [82, 58, 30, 94, 47, 93, 68, 53, 63, 78]
+FedAvg complete
+Round 4 validation accuracy: 0.517
+
+Starting round 5
+Selected clients: [13, 30, 58, 56, 73, 37, 69, 72, 18, 89]
+FedAvg complete
+Round 5 validation accuracy: 0.548
+
+Starting round 6
+Selected clients: [71, 80, 82, 70, 26, 39, 75, 79, 90, 7]
+FedAvg complete
+Round 6 validation accuracy: 0.549
+
+Starting round 7
+Selected clients: [5, 75, 64, 8, 9, 80, 83, 96, 51, 97]
+FedAvg complete
+Round 7 validation accuracy: 0.579
+
+Starting round 8
+Selected clients: [83, 88, 93, 32, 55, 35, 0, 60, 94, 53]
+FedAvg complete
+Round 8 validation accuracy: 0.601
+
+Starting round 9
+Selected clients: [32, 6, 47, 14, 84, 17, 29, 25, 8, 65]
+FedAvg complete
+Round 9 validation accuracy: 0.614
+
+Starting round 10
+Selected clients: [19, 97, 72, 5, 31, 43, 64, 70, 22, 28]
+FedAvg complete
+Round 10 validation accuracy: 0.622
+
+Starting round 11
+Selected clients: [44, 16, 62, 55, 66, 42, 83, 22, 15, 34]
+FedAvg complete
+Round 11 validation accuracy: 0.618
+
+Starting round 12
+Selected clients: [17, 99, 2, 16, 97, 69, 51, 98, 38, 26]
+FedAvg complete
+Round 12 validation accuracy: 0.634
+
+Starting round 13
+Selected clients: [2, 55, 80, 21, 4, 85, 23, 50, 28, 73]
+FedAvg complete
+Round 13 validation accuracy: 0.648
+
+Starting round 14
+Selected clients: [45, 66, 9, 62, 93, 81, 80, 86, 75, 19]
+FedAvg complete
+Round 14 validation accuracy: 0.658
+
+Starting round 15
+Selected clients: [19, 47, 7, 12, 29, 20, 28, 16, 5, 51]
+FedAvg complete
+Round 15 validation accuracy: 0.667
+
+Starting round 16
+Selected clients: [85, 7, 56, 90, 30, 49, 96, 87, 41, 64]
+FedAvg complete
+Round 16 validation accuracy: 0.669
+
+Starting round 17
+Selected clients: [76, 7, 19, 94, 10, 85, 16, 98, 40, 58]
+FedAvg complete
+Round 17 validation accuracy: 0.675
+
+Starting round 18
+Selected clients: [98, 91, 68, 66, 55, 47, 26, 12, 43, 4]
+FedAvg complete
+Round 18 validation accuracy: 0.684
+
+Starting round 19
+Selected clients: [22, 59, 87, 66, 11, 77, 93, 76, 55, 95]
+FedAvg complete
+Round 19 validation accuracy: 0.686
+
+Starting round 20
+Selected clients: [22, 92, 80, 95, 73, 39, 12, 21, 96, 5]
+FedAvg complete
+Round 20 validation accuracy: 0.689
+
+Starting round 21
+Selected clients: [11, 35, 37, 79, 78, 16, 48, 38, 20, 60]
+FedAvg complete
+Round 21 validation accuracy: 0.688
+
+Starting round 22
+Selected clients: [88, 44, 37, 10, 27, 38, 5, 75, 1, 47]
+FedAvg complete
+Round 22 validation accuracy: 0.693
+
+Starting round 23
+Selected clients: [30, 58, 42, 9, 70, 6, 53, 68, 67, 97]
+FedAvg complete
+Round 23 validation accuracy: 0.691
+
+Starting round 24
+Selected clients: [82, 31, 12, 13, 62, 26, 93, 52, 49, 24]
+FedAvg complete
+Round 24 validation accuracy: 0.694
+
+Starting round 25
+Selected clients: [30, 23, 80, 48, 7, 57, 27, 17, 49, 72]
+FedAvg complete
+Round 25 validation accuracy: 0.700
+
+Starting round 26
+Selected clients: [16, 46, 82, 31, 67, 79, 34, 69, 29, 63]
+FedAvg complete
+Round 26 validation accuracy: 0.704
+
+Starting round 27
+Selected clients: [66, 19, 70, 36, 77, 98, 14, 9, 24, 90]
+FedAvg complete
+Round 27 validation accuracy: 0.702
+
+Starting round 28
+Selected clients: [95, 96, 18, 22, 24, 62, 90, 8, 28, 11]
+FedAvg complete
+Round 28 validation accuracy: 0.713
+
+Starting round 29
+Selected clients: [68, 71, 77, 37, 31, 38, 18, 13, 54, 78]
+FedAvg complete
+Round 29 validation accuracy: 0.711
+
+Starting round 30
+Selected clients: [96, 37, 52, 41, 64, 36, 27, 14, 2, 86]
+FedAvg complete
+Round 30 validation accuracy: 0.713
+
+Starting round 31
+Selected clients: [36, 15, 77, 12, 57, 47, 5, 64, 50, 52]
+FedAvg complete
+Round 31 validation accuracy: 0.713
+
+Starting round 32
+Selected clients: [90, 36, 43, 25, 27, 10, 89, 21, 44, 47]
+FedAvg complete
+Round 32 validation accuracy: 0.720
+
+Starting round 33
+Selected clients: [38, 66, 37, 46, 99, 80, 55, 24, 87, 91]
+FedAvg complete
+Round 33 validation accuracy: 0.716
+
+Starting round 34
+Selected clients: [50, 27, 58, 81, 99, 3, 63, 23, 21, 29]
+FedAvg complete
+Round 34 validation accuracy: 0.713
+
+Starting round 35
+Selected clients: [67, 13, 50, 43, 63, 79, 87, 55, 53, 21]
+FedAvg complete
+Round 35 validation accuracy: 0.721
+
+Starting round 36
+Selected clients: [7, 71, 89, 58, 31, 63, 43, 93, 24, 44]
+FedAvg complete
+Round 36 validation accuracy: 0.720
+
+Starting round 37
+Selected clients: [8, 16, 15, 96, 53, 74, 2, 22, 91, 87]
+FedAvg complete
+Round 37 validation accuracy: 0.721
+
+Starting round 38
+Selected clients: [64, 36, 99, 63, 71, 54, 52, 51, 22, 5]
+FedAvg complete
+Round 38 validation accuracy: 0.721
+
+Starting round 39
+Selected clients: [4, 66, 45, 68, 93, 89, 6, 53, 17, 30]
+FedAvg complete
+Round 39 validation accuracy: 0.723
+
+Starting round 40
+Selected clients: [6, 87, 69, 37, 72, 59, 86, 73, 95, 85]
+FedAvg complete
+Round 40 validation accuracy: 0.724
+
+Starting round 41
+Selected clients: [56, 35, 15, 92, 53, 37, 42, 38, 99, 98]
+FedAvg complete
+Round 41 validation accuracy: 0.729
+
+Starting round 42
+Selected clients: [18, 0, 59, 39, 89, 96, 49, 5, 35, 21]
+FedAvg complete
+Round 42 validation accuracy: 0.736
+
+Starting round 43
+Selected clients: [47, 74, 42, 39, 8, 97, 69, 70, 26, 89]
+FedAvg complete
+Round 43 validation accuracy: 0.731
+
+Starting round 44
+Selected clients: [24, 15, 96, 60, 81, 52, 92, 38, 98, 23]
+FedAvg complete
+Round 44 validation accuracy: 0.731
+
+Starting round 45
+Selected clients: [52, 12, 34, 73, 21, 67, 18, 53, 13, 24]
+FedAvg complete
+Round 45 validation accuracy: 0.738
+
+Starting round 46
+Selected clients: [75, 21, 41, 82, 7, 79, 95, 54, 25, 35]
+FedAvg complete
+Round 46 validation accuracy: 0.740
+
+Starting round 47
+Selected clients: [43, 21, 59, 87, 84, 4, 62, 27, 70, 48]
+FedAvg complete
+Round 47 validation accuracy: 0.739
+
+Starting round 48
+Selected clients: [91, 89, 38, 57, 39, 12, 56, 35, 62, 25]
+FedAvg complete
+Round 48 validation accuracy: 0.735
+
+Starting round 49
+Selected clients: [69, 33, 72, 74, 57, 99, 24, 70, 23, 68]
+FedAvg complete
+Round 49 validation accuracy: 0.739
+
+Starting round 50
+Selected clients: [56, 38, 22, 84, 17, 44, 19, 34, 29, 26]
+FedAvg complete
+Round 50 validation accuracy: 0.740
+Simulation completed in 305.49 seconds
+
+Running simulation with 8 concurrent streams
+loading data:
+  number of training samples: 40000
+  number of validation samples: 10000
+  number of test samples: 10000
+
+splitting data:
+  100 splits with 400 samples each
+
+Running simulation on device: cuda:0
+
+Starting round 1
+Selected clients: [27, 69, 14, 85, 48, 10, 17, 96, 29, 97]
+FedAvg complete
+Round 1 validation accuracy: 0.178
+
+Starting round 2
+Selected clients: [66, 97, 93, 58, 53, 94, 38, 13, 82, 56]
+FedAvg complete
+Round 2 validation accuracy: 0.395
+
+Starting round 3
+Selected clients: [97, 58, 20, 46, 25, 53, 63, 74, 12, 33]
+FedAvg complete
+Round 3 validation accuracy: 0.476
+
+Starting round 4
+Selected clients: [12, 32, 71, 85, 27, 9, 45, 21, 23, 29]
+FedAvg complete
+Round 4 validation accuracy: 0.500
+
+Starting round 5
+Selected clients: [36, 43, 9, 47, 67, 11, 46, 88, 69, 59]
+FedAvg complete
+Round 5 validation accuracy: 0.532
+
+Starting round 6
+Selected clients: [83, 82, 75, 44, 43, 54, 56, 67, 96, 59]
+FedAvg complete
+Round 6 validation accuracy: 0.555
+
+Starting round 7
+Selected clients: [14, 85, 34, 59, 64, 25, 31, 41, 35, 82]
+FedAvg complete
+Round 7 validation accuracy: 0.579
+
+Starting round 8
+Selected clients: [61, 6, 55, 53, 27, 28, 68, 77, 36, 12]
+FedAvg complete
+Round 8 validation accuracy: 0.585
+
+Starting round 9
+Selected clients: [35, 57, 87, 60, 51, 95, 17, 36, 91, 29]
+FedAvg complete
+Round 9 validation accuracy: 0.616
+
+Starting round 10
+Selected clients: [3, 5, 28, 75, 52, 6, 16, 62, 30, 51]
+FedAvg complete
+Round 10 validation accuracy: 0.619
+
+Starting round 11
+Selected clients: [78, 7, 37, 71, 12, 96, 55, 95, 4, 75]
+FedAvg complete
+Round 11 validation accuracy: 0.632
+
+Starting round 12
+Selected clients: [54, 23, 48, 31, 36, 32, 64, 13, 34, 18]
+FedAvg complete
+Round 12 validation accuracy: 0.631
+
+Starting round 13
+Selected clients: [4, 93, 58, 84, 73, 70, 83, 25, 46, 36]
+FedAvg complete
+Round 13 validation accuracy: 0.641
+
+Starting round 14
+Selected clients: [30, 84, 0, 87, 44, 86, 2, 39, 71, 64]
+FedAvg complete
+Round 14 validation accuracy: 0.654
+
+Starting round 15
+Selected clients: [16, 49, 44, 78, 55, 46, 14, 86, 1, 94]
+FedAvg complete
+Round 15 validation accuracy: 0.659
+
+Starting round 16
+Selected clients: [32, 31, 12, 4, 18, 79, 73, 14, 88, 10]
+FedAvg complete
+Round 16 validation accuracy: 0.669
+
+Starting round 17
+Selected clients: [24, 31, 64, 14, 93, 28, 45, 6, 97, 38]
+FedAvg complete
+Round 17 validation accuracy: 0.665
+
+Starting round 18
+Selected clients: [81, 28, 44, 32, 8, 75, 11, 93, 22, 29]
+FedAvg complete
+Round 18 validation accuracy: 0.675
+
+Starting round 19
+Selected clients: [41, 69, 99, 11, 14, 67, 71, 80, 50, 8]
+FedAvg complete
+Round 19 validation accuracy: 0.678
+
+Starting round 20
+Selected clients: [99, 23, 55, 8, 72, 61, 36, 76, 25, 81]
+FedAvg complete
+Round 20 validation accuracy: 0.679
+
+Starting round 21
+Selected clients: [8, 32, 97, 52, 83, 78, 30, 44, 88, 64]
+FedAvg complete
+Round 21 validation accuracy: 0.689
+
+Starting round 22
+Selected clients: [94, 32, 98, 90, 47, 6, 5, 3, 62, 17]
+FedAvg complete
+Round 22 validation accuracy: 0.693
+
+Starting round 23
+Selected clients: [16, 35, 2, 24, 3, 50, 91, 79, 68, 17]
+FedAvg complete
+Round 23 validation accuracy: 0.698
+
+Starting round 24
+Selected clients: [41, 26, 38, 81, 61, 71, 35, 52, 88, 1]
+FedAvg complete
+Round 24 validation accuracy: 0.697
+
+Starting round 25
+Selected clients: [54, 60, 90, 18, 38, 88, 68, 66, 67, 0]
+FedAvg complete
+Round 25 validation accuracy: 0.696
+
+Starting round 26
+Selected clients: [57, 1, 58, 54, 76, 91, 49, 62, 0, 65]
+FedAvg complete
+Round 26 validation accuracy: 0.698
+
+Starting round 27
+Selected clients: [49, 89, 10, 26, 48, 9, 98, 30, 23, 42]
+FedAvg complete
+Round 27 validation accuracy: 0.702
+
+Starting round 28
+Selected clients: [49, 83, 62, 48, 84, 44, 30, 58, 63, 26]
+FedAvg complete
+Round 28 validation accuracy: 0.704
+
+Starting round 29
+Selected clients: [15, 44, 24, 29, 12, 36, 4, 82, 39, 21]
+FedAvg complete
+Round 29 validation accuracy: 0.713
+
+Starting round 30
+Selected clients: [46, 38, 70, 69, 81, 85, 32, 6, 57, 65]
+FedAvg complete
+Round 30 validation accuracy: 0.710
+
+Starting round 31
+Selected clients: [65, 32, 89, 6, 92, 99, 69, 43, 25, 64]
+FedAvg complete
+Round 31 validation accuracy: 0.716
+
+Starting round 32
+Selected clients: [87, 88, 45, 62, 40, 89, 55, 58, 64, 82]
+FedAvg complete
+Round 32 validation accuracy: 0.714
+
+Starting round 33
+Selected clients: [94, 95, 48, 80, 99, 11, 42, 17, 89, 90]
+FedAvg complete
+Round 33 validation accuracy: 0.716
+
+Starting round 34
+Selected clients: [29, 39, 35, 87, 15, 88, 60, 27, 86, 18]
+FedAvg complete
+Round 34 validation accuracy: 0.717
+
+Starting round 35
+Selected clients: [44, 79, 43, 70, 13, 55, 61, 3, 80, 5]
+FedAvg complete
+Round 35 validation accuracy: 0.722
+
+Starting round 36
+Selected clients: [99, 84, 89, 72, 44, 69, 51, 19, 52, 35]
+FedAvg complete
+Round 36 validation accuracy: 0.727
+
+Starting round 37
+Selected clients: [97, 78, 63, 33, 24, 49, 38, 68, 42, 8]
+FedAvg complete
+Round 37 validation accuracy: 0.721
+
+Starting round 38
+Selected clients: [91, 87, 93, 10, 44, 45, 25, 27, 71, 81]
+FedAvg complete
+Round 38 validation accuracy: 0.727
+
+Starting round 39
+Selected clients: [23, 61, 2, 13, 26, 84, 80, 76, 58, 82]
+FedAvg complete
+Round 39 validation accuracy: 0.723
+
+Starting round 40
+Selected clients: [12, 82, 64, 70, 57, 36, 47, 59, 46, 23]
+FedAvg complete
+Round 40 validation accuracy: 0.727
+
+Starting round 41
+Selected clients: [64, 67, 9, 54, 84, 30, 92, 71, 60, 25]
+FedAvg complete
+Round 41 validation accuracy: 0.724
+
+Starting round 42
+Selected clients: [48, 71, 23, 67, 7, 56, 76, 91, 73, 80]
+FedAvg complete
+Round 42 validation accuracy: 0.725
+
+Starting round 43
+Selected clients: [96, 13, 24, 5, 16, 64, 93, 52, 20, 23]
+FedAvg complete
+Round 43 validation accuracy: 0.727
+
+Starting round 44
+Selected clients: [15, 80, 2, 32, 64, 31, 71, 37, 83, 50]
+FedAvg complete
+Round 44 validation accuracy: 0.734
+
+Starting round 45
+Selected clients: [54, 70, 35, 85, 1, 37, 67, 75, 10, 36]
+FedAvg complete
+Round 45 validation accuracy: 0.734
+
+Starting round 46
+Selected clients: [68, 70, 78, 37, 6, 56, 3, 10, 96, 81]
+FedAvg complete
+Round 46 validation accuracy: 0.736
+
+Starting round 47
+Selected clients: [17, 84, 82, 74, 44, 11, 90, 99, 25, 1]
+FedAvg complete
+Round 47 validation accuracy: 0.732
+
+Starting round 48
+Selected clients: [33, 14, 77, 63, 68, 11, 15, 66, 72, 32]
+FedAvg complete
+Round 48 validation accuracy: 0.736
+
+Starting round 49
+Selected clients: [87, 20, 47, 5, 85, 84, 97, 2, 59, 45]
+FedAvg complete
+Round 49 validation accuracy: 0.732
+
+Starting round 50
+Selected clients: [18, 7, 21, 34, 90, 42, 4, 65, 38, 70]
+FedAvg complete
+Round 50 validation accuracy: 0.737
+Simulation completed in 303.48 seconds
+
+Running simulation with 16 concurrent streams
+loading data:
+  number of training samples: 40000
+  number of validation samples: 10000
+  number of test samples: 10000
+
+splitting data:
+  100 splits with 400 samples each
+
+Running simulation on device: cuda:0
+
+Starting round 1
+Selected clients: [5, 20, 16, 68, 37, 55, 65, 70, 1, 39]
+FedAvg complete
+Round 1 validation accuracy: 0.202
+
+Starting round 2
+Selected clients: [91, 31, 28, 87, 48, 70, 53, 18, 7, 9]
+FedAvg complete
+Round 2 validation accuracy: 0.437
+
+Starting round 3
+Selected clients: [52, 13, 57, 81, 53, 21, 83, 34, 80, 71]
+FedAvg complete
+Round 3 validation accuracy: 0.500
+
+Starting round 4
+Selected clients: [64, 26, 74, 33, 14, 35, 52, 61, 71, 70]
+FedAvg complete
+Round 4 validation accuracy: 0.526
+
+Starting round 5
+Selected clients: [70, 52, 45, 8, 65, 76, 53, 91, 3, 72]
+FedAvg complete
+Round 5 validation accuracy: 0.538
+
+Starting round 6
+Selected clients: [3, 65, 91, 39, 96, 80, 61, 28, 13, 66]
+FedAvg complete
+Round 6 validation accuracy: 0.573
+
+Starting round 7
+Selected clients: [95, 72, 71, 80, 27, 14, 12, 36, 40, 57]
+FedAvg complete
+Round 7 validation accuracy: 0.589
+
+Starting round 8
+Selected clients: [87, 91, 73, 25, 94, 80, 33, 40, 18, 85]
+FedAvg complete
+Round 8 validation accuracy: 0.601
+
+Starting round 9
+Selected clients: [65, 74, 79, 43, 90, 7, 45, 80, 41, 39]
+FedAvg complete
+Round 9 validation accuracy: 0.613
+
+Starting round 10
+Selected clients: [83, 82, 21, 28, 88, 61, 67, 69, 84, 13]
+FedAvg complete
+Round 10 validation accuracy: 0.620
+
+Starting round 11
+Selected clients: [48, 52, 1, 96, 61, 84, 35, 70, 60, 82]
+FedAvg complete
+Round 11 validation accuracy: 0.628
+
+Starting round 12
+Selected clients: [8, 16, 88, 47, 18, 57, 5, 73, 85, 15]
+FedAvg complete
+Round 12 validation accuracy: 0.641
+
+Starting round 13
+Selected clients: [62, 67, 51, 53, 59, 61, 88, 3, 19, 56]
+FedAvg complete
+Round 13 validation accuracy: 0.655
+
+Starting round 14
+Selected clients: [13, 33, 84, 79, 96, 68, 93, 41, 18, 39]
+FedAvg complete
+Round 14 validation accuracy: 0.656
+
+Starting round 15
+Selected clients: [55, 61, 77, 16, 37, 35, 41, 38, 5, 22]
+FedAvg complete
+Round 15 validation accuracy: 0.662
+
+Starting round 16
+Selected clients: [93, 75, 82, 14, 39, 90, 99, 57, 88, 66]
+FedAvg complete
+Round 16 validation accuracy: 0.668
+
+Starting round 17
+Selected clients: [61, 98, 11, 75, 10, 23, 77, 99, 55, 1]
+FedAvg complete
+Round 17 validation accuracy: 0.669
+
+Starting round 18
+Selected clients: [75, 16, 9, 60, 1, 62, 87, 49, 99, 63]
+FedAvg complete
+Round 18 validation accuracy: 0.672
+
+Starting round 19
+Selected clients: [49, 86, 78, 39, 25, 92, 70, 7, 1, 98]
+FedAvg complete
+Round 19 validation accuracy: 0.680
+
+Starting round 20
+Selected clients: [95, 21, 38, 82, 59, 61, 91, 90, 55, 26]
+FedAvg complete
+Round 20 validation accuracy: 0.686
+
+Starting round 21
+Selected clients: [71, 8, 55, 14, 65, 40, 45, 92, 72, 49]
+FedAvg complete
+Round 21 validation accuracy: 0.684
+
+Starting round 22
+Selected clients: [70, 10, 83, 27, 96, 37, 89, 22, 48, 49]
+FedAvg complete
+Round 22 validation accuracy: 0.689
+
+Starting round 23
+Selected clients: [87, 72, 17, 30, 84, 86, 28, 83, 33, 29]
+FedAvg complete
+Round 23 validation accuracy: 0.689
+
+Starting round 24
+Selected clients: [41, 62, 40, 73, 11, 5, 70, 14, 12, 21]
+FedAvg complete
+Round 24 validation accuracy: 0.697
+
+Starting round 25
+Selected clients: [33, 47, 80, 41, 51, 30, 94, 92, 56, 86]
+FedAvg complete
+Round 25 validation accuracy: 0.700
+
+Starting round 26
+Selected clients: [45, 75, 9, 35, 1, 30, 84, 72, 69, 44]
+FedAvg complete
+Round 26 validation accuracy: 0.697
+
+Starting round 27
+Selected clients: [95, 65, 11, 96, 7, 18, 77, 6, 90, 63]
+FedAvg complete
+Round 27 validation accuracy: 0.702
+
+Starting round 28
+Selected clients: [48, 83, 37, 10, 68, 21, 75, 6, 31, 74]
+FedAvg complete
+Round 28 validation accuracy: 0.708
+
+Starting round 29
+Selected clients: [19, 65, 39, 82, 98, 26, 80, 38, 90, 56]
+FedAvg complete
+Round 29 validation accuracy: 0.711
+
+Starting round 30
+Selected clients: [35, 45, 76, 96, 73, 66, 95, 16, 69, 75]
+FedAvg complete
+Round 30 validation accuracy: 0.716
+
+Starting round 31
+Selected clients: [15, 57, 27, 16, 46, 97, 20, 31, 83, 89]
+FedAvg complete
+Round 31 validation accuracy: 0.716
+
+Starting round 32
+Selected clients: [58, 41, 61, 82, 17, 85, 42, 25, 84, 78]
+FedAvg complete
+Round 32 validation accuracy: 0.718
+
+Starting round 33
+Selected clients: [50, 29, 68, 66, 48, 6, 86, 45, 22, 4]
+FedAvg complete
+Round 33 validation accuracy: 0.715
+
+Starting round 34
+Selected clients: [24, 3, 69, 32, 34, 76, 57, 17, 63, 39]
+FedAvg complete
+Round 34 validation accuracy: 0.721
+
+Starting round 35
+Selected clients: [76, 51, 70, 98, 39, 21, 8, 57, 23, 11]
+FedAvg complete
+Round 35 validation accuracy: 0.719
+
+Starting round 36
+Selected clients: [41, 23, 63, 50, 48, 72, 55, 24, 52, 38]
+FedAvg complete
+Round 36 validation accuracy: 0.723
+
+Starting round 37
+Selected clients: [96, 58, 14, 41, 98, 62, 76, 74, 67, 21]
+FedAvg complete
+Round 37 validation accuracy: 0.726
+
+Starting round 38
+Selected clients: [32, 39, 9, 71, 24, 53, 6, 87, 51, 99]
+FedAvg complete
+Round 38 validation accuracy: 0.727
+
+Starting round 39
+Selected clients: [68, 5, 48, 39, 85, 91, 93, 34, 82, 66]
+FedAvg complete
+Round 39 validation accuracy: 0.726
+
+Starting round 40
+Selected clients: [50, 12, 3, 89, 83, 45, 17, 66, 92, 57]
+FedAvg complete
+Round 40 validation accuracy: 0.731
+
+Starting round 41
+Selected clients: [65, 0, 11, 70, 60, 58, 48, 31, 9, 17]
+FedAvg complete
+Round 41 validation accuracy: 0.729
+
+Starting round 42
+Selected clients: [63, 38, 48, 79, 50, 84, 62, 49, 41, 54]
+FedAvg complete
+Round 42 validation accuracy: 0.731
+
+Starting round 43
+Selected clients: [13, 83, 41, 20, 72, 65, 86, 51, 80, 99]
+FedAvg complete
+Round 43 validation accuracy: 0.728
+
+Starting round 44
+Selected clients: [59, 62, 11, 12, 63, 8, 65, 81, 9, 45]
+FedAvg complete
+Round 44 validation accuracy: 0.735
+
+Starting round 45
+Selected clients: [85, 4, 22, 97, 0, 88, 11, 8, 17, 63]
+FedAvg complete
+Round 45 validation accuracy: 0.732
+
+Starting round 46
+Selected clients: [52, 15, 2, 0, 10, 35, 23, 74, 27, 99]
+FedAvg complete
+Round 46 validation accuracy: 0.734
+
+Starting round 47
+Selected clients: [6, 12, 83, 49, 74, 17, 26, 28, 42, 79]
+FedAvg complete
+Round 47 validation accuracy: 0.733
+
+Starting round 48
+Selected clients: [75, 91, 54, 0, 77, 49, 59, 98, 99, 9]
+FedAvg complete
+Round 48 validation accuracy: 0.736
+
+Starting round 49
+Selected clients: [38, 8, 74, 89, 85, 35, 20, 54, 5, 73]
+FedAvg complete
+Round 49 validation accuracy: 0.741
+
+Starting round 50
+Selected clients: [34, 21, 6, 66, 40, 63, 35, 59, 92, 25]
+FedAvg complete
+Round 50 validation accuracy: 0.736
+Simulation completed in 303.72 seconds
+
+
+------------------------------------------------------------
+Sender: LSF System <lsfadmin@hpc.dtu.dk>
+Subject: Job 24396615: <fedavg_streams> in cluster <dcc> Done
+
+Job <fedavg_streams> was submitted from host <n-62-30-7> by user <s204790> in cluster <dcc> at Tue Mar 11 20:05:35 2025
+Job was executed on host(s) <8*n-62-12-20>, in queue <gpua100>, as user <s204790> in cluster <dcc> at Tue Mar 11 20:05:35 2025
+</zhome/94/5/156250> was used as the home directory.
+</zhome/94/5/156250/Documents/FederatedLearning/FederatedLearning/HPC> was used as the working directory.
+Started at Tue Mar 11 20:05:35 2025
+Terminated at Tue Mar 11 20:31:18 2025
+Results reported at Tue Mar 11 20:31:18 2025
+
+Your job looked like:
+
+------------------------------------------------------------
+# LSBATCH: User input
+#!/bin/bash
+
+### General options
+### –- specify queue --
+#BSUB -q gpua100
+
+### -- set the job Name --
+#BSUB -J fedavg_streams
+
+### -- ask for number of cores (default: 1) --
+#BSUB -n 8
+
+### -- Select the resources: 1 gpu in exclusive process mode --
+#BSUB -gpu "num=1:mode=exclusive_process"
+
+### -- set walltime limit: hh:mm --  maximum 24 hours for GPU-queues right now
+#BSUB -W 04:00
+
+# request system-memory
+#BSUB -R "rusage[mem=16GB]"
+
+
+#BSUB -R "span[hosts=1]"
+
+### -- Specify the output and error file. %J is the job-id --
+### -- -o and -e mean append, -oo and -eo mean overwrite --
+#BSUB -o /zhome/94/5/156250/Documents/FederatedLearning/FederatedLearning/HPC/outputs/fedavg_streams_%J.out
+#BSUB -e /zhome/94/5/156250/Documents/FederatedLearning/FederatedLearning/HPC/outputs/fedavg_streams_%J.err
+# -- end of LSF options --
+
+# module load python3/3.12.4
+source /zhome/94/5/156250/Documents/FederatedLearning/.venv/bin/activate
+
+python3 -u cifar10_fedavg.py
+------------------------------------------------------------
+
+Successfully completed.
+
+Resource usage summary:
+
+    CPU time :                                   1542.00 sec.
+    Max Memory :                                 959 MB
+    Average Memory :                             936.45 MB
+    Total Requested Memory :                     131072.00 MB
+    Delta Memory :                               130113.00 MB
+    Max Swap :                                   -
+    Max Processes :                              4
+    Max Threads :                                11
+    Run time :                                   1543 sec.
+    Turnaround time :                            1543 sec.
+
+The output (if any) is above this job summary.
+
+
+
+PS:
+
+Read file </zhome/94/5/156250/Documents/FederatedLearning/FederatedLearning/HPC/outputs/fedavg_streams_24396615.err> for stderr output of this job.
+

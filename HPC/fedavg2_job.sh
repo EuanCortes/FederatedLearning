@@ -24,11 +24,11 @@
 
 ### -- Specify the output and error file. %J is the job-id --
 ### -- -o and -e mean append, -oo and -eo mean overwrite --
-#BSUB -o /zhome/94/5/156250/Documents/FederatedLearning/FederatedLearning/HPC/outputs/cifar10_fedavg2_2gpu%J.out
-#BSUB -e /zhome/94/5/156250/Documents/FederatedLearning/FederatedLearning/HPC/outputs/cifar10_fedavg2_2gpu%J.err
+#BSUB -o /zhome/94/5/156250/Documents/FederatedLearning/FederatedLearning/HPC/outputs/fedavg2_2gpu%J.out
+#BSUB -e /zhome/94/5/156250/Documents/FederatedLearning/FederatedLearning/HPC/outputs/fedavg2_2gpu%J.err
 # -- end of LSF options --
 
 # module load python3/3.12.4
 source /zhome/94/5/156250/Documents/FederatedLearning/.venv/bin/activate
 
-python3 cifar10_fedavg2.py
+python3 -u cifar10_fedavg2.py

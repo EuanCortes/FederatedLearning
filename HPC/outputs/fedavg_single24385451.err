@@ -1,0 +1,7 @@
+Loaded dependency [python3/3.12.2]: sqlite3/3.45.1
+Loaded dependency [python3/3.12.2]: gcc/12.3.0-binutils-2.40
+Loaded module: python3/3.12.2
+
+Loading python3/3.12.2
+  Loading requirement: sqlite3/3.45.1 gcc/12.3.0-binutils-2.40
+User defined signal 2

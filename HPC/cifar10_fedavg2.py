@@ -1,16 +1,16 @@
 import torch
-from torch import nn
-from torch.utils.data import DataLoader, Subset
-from torch import optim
+import torch.nn as nn
+import torch.optim as optim
 import torch.multiprocessing as mp
+from torch.utils.data import DataLoader, Subset
+import copy
+import random
+import os
+import sys
 
 import numpy as np
 import matplotlib.pyplot as plt
 import time
-import copy
-
-import os
-import sys
 
 ############################################################
 # ------------- Import from utils directory -------------- #
@@ -25,181 +25,167 @@ if model_dir not in sys.path:
 
 from model import SmallCNN
 from dataset import load_data, split_data
-from federated_learning import client_update, fed_avg
+from federated_learning import fed_avg, validate
 
 ############################################################
 # --------------------- End imports ---------------------- #
 ############################################################
 
 
-def client_update(state_dict, device, dataloader, epochs, stream):
-    '''
-    client local update
-    '''
-    net = SmallCNN().to(device)
-    net.load_state_dict(state_dict)
-    optimizer = optim.Adam(net.parameters(), lr=0.001)
+
+###########################
+# Client Local Update Worker
+###########################
+def client_update_worker(global_state, device, client_loader, epochs):
+    """
+    Perform a local update for a single client.
+    - global_state: global model state (assumed to be on CPU)
+    - device: target GPU device
+    - client_loader: DataLoader for the client's local data
+    - epochs: number of local epochs
+    - stream: CUDA stream for asynchronous execution
+    Returns a state_dict with parameters moved to CPU.
+    """
+    model = SmallCNN().to(device)
+    model.load_state_dict(global_state)  # load global weights
+    optimizer = optim.Adam(model.parameters(), lr=0.001)
     criterion = nn.CrossEntropyLoss()
-
-    net.train()
-    for epoch in range(epochs):
-        epoch_loss = 0
-        for Xtrain, Ytrain in dataloader:
-            Xtrain, Ytrain = Xtrain.to(device, non_blocking=True), Ytrain.to(device, non_blocking=True)
-
-            with torch.cuda.stream(stream):
-                outputs = net(Xtrain)
-
-                optimizer.zero_grad()
-                loss = criterion(outputs, Ytrain)
-                loss.backward()
-                optimizer.step()
-
-                epoch_loss += loss.item()
-
-    print("Client finished training", flush=True)
-    cpu_state_dict = {k: v.cpu() for k, v in net.state_dict().items()}
-    return cpu_state_dict, epoch_loss / len(dataloader)
+    model.train()
     
+    for _ in range(epochs):
+        for X, Y in client_loader:
+            X, Y = X.to(device, non_blocking=True), Y.to(device, non_blocking=True)
+            optimizer.zero_grad()
+            outputs = model(X)
+            loss = criterion(outputs, Y)
+            loss.backward()
+            optimizer.step()
+    # Return updated weights on CPU to avoid CUDA tensor sharing issues
+    return {k: v.cpu() for k, v in model.state_dict().items()}
 
-def gpu_process(cuda_id, client_ids, dataloaders, state_dict, epochs, return_dict, max_streams=4):
-    '''
-    gpu process for training
-    '''
-    device = torch.device(f"cuda:{cuda_id}")
+###########################
+# GPU Process Function
+###########################
+def gpu_process(gpu_id, client_ids, trainset, client_indices, global_state, epochs, return_dict, max_streams=4):
+    """
+    Run local client updates on a single GPU.
+    - gpu_id: GPU index (e.g., 0, 1)
+    - client_ids: list of client indices assigned to this GPU
+    - trainset: the full training dataset
+    - client_indices: a list (or dict) mapping each client id to its indices in trainset
+    - global_state: current global model state (on CPU)
+    - epochs: number of local epochs for each client update
+    - return_dict: a Manager dict to store client updates
+    - max_streams: maximum number of concurrent CUDA streams
+    """
+    device = torch.device(f"cuda:{gpu_id}")
     torch.cuda.set_device(device)
-    print(f"gpu {cuda_id} training clients : {client_ids}", flush=True)
-    streams = [torch.cuda.Stream() for _ in range(max_streams)]
+    print(f"GPU {gpu_id} processing clients: {client_ids}", flush=True)
+    
+    # Create a fixed pool of CUDA streams
+    local_updates = {}
+    
+    # Process clients in batches of size max_streams
+    for client_id in client_ids:
+        # Recreate DataLoader for this client using its subset of the trainset.
+        client_subset = Subset(trainset, client_indices[client_id])
+        client_loader = DataLoader(client_subset, batch_size=64, shuffle=True, num_workers=0)
+        update = client_update_worker(global_state, device, client_loader, epochs)
+        local_updates[client_id] = update
 
-    client_updates = {}
-    for i in range(0, len(client_ids), max_streams):
-        current_batch = client_ids[i: i + max_streams]
-        # Launch local updates concurrently on available streams.
-        for idx, client_id in enumerate(current_batch):
-            stream = streams[idx]  # reuse stream from the pool
-            client_updates[client_id] = client_update(state_dict, device, dataloaders[client_id], epochs, stream)
+    
+    return_dict[gpu_id] = local_updates
+    print(f"GPU {gpu_id} finished processing clients: {client_ids}", flush=True)
 
-        torch.cuda.synchronize()
-
-    return_dict[cuda_id] = client_updates
-    print(f"GPU {cuda_id} finished training clients {client_ids}")
-
-
-
-def validate(valloader, current_weights):
-    '''
-    validation of the model
-    '''
-
-    device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
-    net = SmallCNN().to(device)
-    net.load_state_dict(current_weights)
-    net.eval()
-
-    correct = 0
-    total = 0
-
-    with torch.no_grad():
-        for (images, labels) in valloader:
-            images, labels = images.to(device), labels.to(device)
-            # calculate outputs by running images through the network
-            outputs = net(images)
-            # the class with the highest energy is what we choose as prediction
-            _, predicted = torch.max(outputs, 1)
-            total += labels.size(0)
-            correct += (predicted == labels).sum().item()
-    val_acc = correct / total
-
-    return val_acc
-
-
-if __name__ == "__main__":
-
-    ####################### hyperparameters ####################
-    NUM_CLIENTS = 100
-    C = 0.2
-    CLIENTS_PER_ROUND = int(NUM_CLIENTS * C)
-    MAX_ROUNDS = 200
-    NUM_LOCAL_EPOCHS = 10
-    #NUM_GPUS = torch.cuda.device_count()
-    NUM_GPUS = 2
-    ############################################################
-
-
-
-    ####################### load data ##########################
+###########################
+# Federated Simulation Function
+###########################
+def federated_simulation(num_clients, frac_participants, max_rounds, num_local_epochs):
+    """
+    Main simulation function for federated learning.
+    - num_clients: total number of clients
+    - frac_participants: fraction of clients selected each round
+    - max_rounds: maximum number of rounds to run
+    - num_local_epochs: number of local epochs for client updates
+    """
+    clients_per_round = int(num_clients * frac_participants)
+    
+    # Load datasets
     trainset, valset, testset = load_data(validation_percent=0.2)
+    val_loader = DataLoader(valset, batch_size=64, shuffle=True, num_workers=0)
+    
+    # Partition the training set among clients.
+    # Assume split_data returns a list (or dict) where each index contains the list of indices for that client.
+    client_indices = split_data(trainset, num_clients=num_clients, iid=True)
+    
+    # Initialize global model
+    model = SmallCNN()
+    global_state = copy.deepcopy(model.state_dict())
 
-    trainloader = DataLoader(trainset, batch_size=64,
-                            shuffle=True, num_workers=0)
+    main_device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
+    model = model.to(main_device)
 
-    valloader = DataLoader(valset, batch_size=64,
-                            shuffle=True, num_workers=0)
-
-    testloader = DataLoader(testset, batch_size=64,
-                            shuffle=True, num_workers=0)
-    ############################################################
-
-
-    ############# prepare client partitions ####################
-    client_indices = split_data(trainset, num_clients=NUM_CLIENTS, iid=True)
-
-    clients = [
-        DataLoader(Subset(trainset, client_indices[i]), 
-                batch_size=64, 
-                shuffle=True, 
-                num_workers=4)
-        for i in range(NUM_CLIENTS)
-        ]
-    ############################################################
-
-    mp.set_start_method('spawn', force=True)
-
-    print("Number of GPUs: ", NUM_GPUS)
-
-    # store training loss and validation accuracy
-    avg_train_loss = []
-    val_accuracy = []
-
-    round = 0
-    val_acc = 0
-
-    net = SmallCNN()
-    current_weights = copy.deepcopy(net.state_dict())
-    del net
-
-    while val_acc < 0.77 and round < MAX_ROUNDS:
-
-        round += 1
-
-        #current_weights_cpu = {k: v.cpu() for k, v in current_weights.items()}
-
-        client_ids = torch.randperm(NUM_CLIENTS)[:CLIENTS_PER_ROUND] # random selection of clients to participate
-        local_weights = []
-        temp_avg_loss = 0
-
-        gpu_partitions = torch.chunk(client_ids, NUM_GPUS)
-
+    num_gpus = torch.cuda.device_count()
+    print(f"Running simulation on {num_gpus} GPUs", flush=True)
+    
+    # Main federated learning loop
+    for rnd in range(max_rounds):
+        print(f"\nStarting round {rnd+1}", flush=True)
+        selected_clients = random.sample(range(num_clients), clients_per_round)
+        print("Selected clients:", selected_clients, flush=True)
+        
+        # Partition selected clients evenly among available GPUs
+        gpu_partitions = {i: [] for i in range(num_gpus)}
+        for idx, client_id in enumerate(selected_clients):
+            gpu_partitions[idx % num_gpus].append(client_id)
+        
+        # Use a Manager to collect client updates from each GPU process
         manager = mp.Manager()
         return_dict = manager.dict()
         processes = []
-
-        print("assigning clients to GPUs")
-        for gpu_id, partition in enumerate(gpu_partitions):
-            p = mp.Process(target=gpu_process, args=(gpu_id, partition, clients, current_weights, NUM_LOCAL_EPOCHS, return_dict))
-            p.start()
-            processes.append(p)
-
+        
+        for gpu_id, client_ids in gpu_partitions.items():
+            if client_ids:  # only launch process if there are clients assigned
+                p = mp.Process(target=gpu_process, args=(
+                    gpu_id, client_ids, trainset, client_indices, global_state, num_local_epochs, return_dict))
+                p.start()
+                processes.append(p)
+        
         for p in processes:
             p.join()
-
+        
+        # Gather client updates from all GPUs and perform federated averaging
         client_updates = []
-        for i in range(NUM_GPUS):
-            client_updates.extend(return_dict[i].values())
+        for gpu_updates in return_dict.values():
+            client_updates.extend(gpu_updates.values())
+        
+        global_state = fed_avg(client_updates)
+        print("FedAvg complete", flush=True)
+        
+        # Evaluate global model on the validation set
+        val_acc = validate(model, global_state, val_loader)
+        print(f"Round {rnd+1} validation accuracy: {val_acc:.3f}", flush=True)
+    
+    return global_state
 
-        current_weights = fed_avg([state for state, loss in client_updates])
-
-        if round % 1 == 0:
-            val_acc = validate(valloader, current_weights)
-            print(f"Round {round+1}, Validation accuracy: {val_acc}")
-
+###########################
+# Main Execution Block
+###########################
+if __name__ == '__main__':
+    mp.set_start_method('spawn', force=True)
+    
+    # Hyperparameters
+    NUM_CLIENTS = 100
+    FRACTION_PARTICIPANTS = 0.1  # 10% of clients participate each round
+    MAX_ROUNDS = 10
+    NUM_LOCAL_EPOCHS = 5
+    
+    final_state = federated_simulation(
+        num_clients=NUM_CLIENTS,
+        frac_participants=FRACTION_PARTICIPANTS,
+        max_rounds=MAX_ROUNDS,
+        num_local_epochs=NUM_LOCAL_EPOCHS
+    )
+    
+    #torch.save(final_state, "final_global_model.pth")
+    print("Simulation complete. Final model saved.", flush=True)

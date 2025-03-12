@@ -31,4 +31,4 @@
 # module load python3/3.12.4
 source /zhome/94/5/156250/Documents/FederatedLearning/.venv/bin/activate
 
-python3 -u cifar10_fedavg.py
+python3 -u cifar10_fedavg_joblib.py
