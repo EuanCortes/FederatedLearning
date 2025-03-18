@@ -5,7 +5,7 @@
 #BSUB -q gpua100
 
 ### -- set the job Name --
-#BSUB -J fedavg_single
+#BSUB -J fedavg_single_small
 
 ### -- ask for number of cores (default: 1) --
 #BSUB -n 4
@@ -24,8 +24,8 @@
 
 ### -- Specify the output and error file. %J is the job-id --
 ### -- -o and -e mean append, -oo and -eo mean overwrite --
-#BSUB -o /zhome/94/5/156250/Documents/FederatedLearning/FederatedLearning/HPC/outputs/fedavg_single%J.out
-#BSUB -e /zhome/94/5/156250/Documents/FederatedLearning/FederatedLearning/HPC/outputs/fedavg_single%J.err
+#BSUB -o /zhome/94/5/156250/Documents/FederatedLearning/FederatedLearning/HPC/outputs/fedavg_single_small%J.out
+#BSUB -e /zhome/94/5/156250/Documents/FederatedLearning/FederatedLearning/HPC/outputs/fedavg_single_small%J.err
 # -- end of LSF options --
 
 # module load python3/3.12.4

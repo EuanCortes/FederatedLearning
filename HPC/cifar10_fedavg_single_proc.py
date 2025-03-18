@@ -35,14 +35,17 @@ from federated_learning import federated_sim
 if __name__ == "__main__":
 
     ####################### hyperparameters ####################
+    num_clients = [100, 500]
+    Cs = [[0.1, 0.2], [0.05, 0.1]]
 
-    num_clients = [1, 10, 100, 500]
-    Cs = [[1.], [0.5, 1.], [0.1, 0.2], [0.05, 0.1]]
+    max_rounds = [200, 500]
+    num_local_epochs = [5, 5]
 
-    max_rounds = [10, 20, 100, 300]
-    num_local_epochs = [5, 5, 5, 5]
+    lrs = [0.001, 0.001]
 
-    lrs = [0.001, 0.001, 0.002, 0.003]
+    experiment_name = "smaller_network"
+
+    os.mkdir(f"outputs/figures/{experiment_name}")
     ############################################################
 
 
@@ -55,7 +58,7 @@ if __name__ == "__main__":
                                             lr=lr,
                                             )
 
-            fig1.savefig(f"outputs/figures/0_err_acc_N_{NUM_CLIENTS:d}__C_{C:.2f}__iters_{final_round:d}.png", dpi=200)
-            fig2.savefig(f"outputs/figures/0_hist_N_{NUM_CLIENTS:d}__C_{C:.2f}__iters_{final_round:d}.png", dpi=200)
+            fig1.savefig(f"outputs/figures/{experiment_name}/err_acc_N_{NUM_CLIENTS:d}__C_{C:.2f}__iters_{final_round:d}.png", dpi=200)
+            fig2.savefig(f"outputs/figures/{experiment_name}/hist_N_{NUM_CLIENTS:d}__C_{C:.2f}__iters_{final_round:d}.png", dpi=200)
 
     print("Finished experiment.")

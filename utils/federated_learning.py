@@ -175,6 +175,11 @@ def federated_sim(num_clients : int,
     current_weights = copy.deepcopy(net.state_dict())
     device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
     net = net.to(device)
+
+    print("network architecture:")
+    print(net)
+
+    print_every = max_rounds // 20
     ############################################################
 
 
@@ -193,17 +198,21 @@ def federated_sim(num_clients : int,
             temp_avg_loss += loss
         
         avg_train_loss.append(temp_avg_loss / clients_per_round)
-        
-        print(f"Round {current_round} done")
-        print(f"training loss: {avg_train_loss[-1]:.3f}")
 
         current_weights = fed_avg(local_weights)    
 
         val_acc = validate(net, current_weights, valloader)
         val_accuracy.append(val_acc)
-        print(f"Validation accuracy: {val_acc:.3f}")
+
+        if round % print_every == print_every - 1:
+            print(f"Round {current_round} done")
+            print(f"training loss: {avg_train_loss[-1]:.3f}")
+            print(f"Validation accuracy: {val_acc:.3f}")
 
     print(f'Finished Training in {current_round} rounds')
+    print(f"training loss: {avg_train_loss[-1]:.3f}")
+    print(f"Validation accuracy: {val_acc:.3f}")
+
 
     fig1, axs = plt.subplots(1, 2, figsize=(15, 5))
     axs[0].plot(np.arange(current_round), avg_train_loss, label="training loss")

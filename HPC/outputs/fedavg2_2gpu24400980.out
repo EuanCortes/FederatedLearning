@@ -1,0 +1,166 @@
+loading data:
+  number of training samples: 40000
+  number of validation samples: 10000
+  number of test samples: 10000
+
+splitting data:
+  100 splits with 400 samples each
+
+Running simulation on 2 GPUs
+
+Starting round 1
+Selected clients: [92, 12, 24, 34, 16, 76, 52, 2, 6, 97]
+GPU 0 processing clients: [92, 24, 16, 52, 6]
+GPU 1 processing clients: [12, 34, 76, 2, 97]
+GPU 1 finished processing clients: [12, 34, 76, 2, 97]
+FedAvg complete
+Round 1 validation accuracy: 0.231
+
+Starting round 2
+Selected clients: [76, 74, 80, 45, 44, 36, 9, 5, 8, 69]
+GPU 0 processing clients: [76, 80, 44, 9, 8]
+GPU 1 processing clients: [74, 45, 36, 5, 69]
+GPU 1 finished processing clients: [74, 45, 36, 5, 69]
+FedAvg complete
+Round 2 validation accuracy: 0.362
+
+Starting round 3
+Selected clients: [66, 57, 15, 85, 37, 55, 92, 83, 54, 11]
+GPU 0 processing clients: [66, 15, 37, 92, 54]
+GPU 1 processing clients: [57, 85, 55, 83, 11]
+GPU 1 finished processing clients: [57, 85, 55, 83, 11]
+FedAvg complete
+Round 3 validation accuracy: 0.487
+
+Starting round 4
+Selected clients: [20, 34, 35, 22, 46, 68, 80, 36, 89, 19]
+GPU 0 processing clients: [20, 35, 46, 80, 89]
+GPU 1 processing clients: [34, 22, 68, 36, 19]
+GPU 1 finished processing clients: [34, 22, 68, 36, 19]
+FedAvg complete
+Round 4 validation accuracy: 0.519
+
+Starting round 5
+Selected clients: [72, 71, 70, 40, 56, 1, 92, 90, 62, 42]
+GPU 0 processing clients: [72, 70, 56, 92, 62]
+GPU 1 processing clients: [71, 40, 1, 90, 42]
+GPU 1 finished processing clients: [71, 40, 1, 90, 42]
+FedAvg complete
+Round 5 validation accuracy: 0.546
+
+Starting round 6
+Selected clients: [28, 23, 68, 40, 87, 22, 58, 47, 86, 96]
+GPU 0 processing clients: [28, 68, 87, 58, 86]
+GPU 1 processing clients: [23, 40, 22, 47, 96]
+GPU 1 finished processing clients: [23, 40, 22, 47, 96]
+FedAvg complete
+Round 6 validation accuracy: 0.554
+
+Starting round 7
+Selected clients: [39, 35, 31, 63, 58, 71, 54, 24, 88, 4]
+GPU 0 processing clients: [39, 31, 58, 54, 88]
+GPU 1 processing clients: [35, 63, 71, 24, 4]
+GPU 1 finished processing clients: [35, 63, 71, 24, 4]
+FedAvg complete
+Round 7 validation accuracy: 0.590
+
+Starting round 8
+Selected clients: [23, 84, 86, 3, 42, 15, 32, 17, 21, 54]
+GPU 0 processing clients: [23, 86, 42, 32, 21]
+GPU 1 processing clients: [84, 3, 15, 17, 54]
+GPU 1 finished processing clients: [84, 3, 15, 17, 54]
+FedAvg complete
+Round 8 validation accuracy: 0.594
+
+Starting round 9
+Selected clients: [90, 57, 0, 77, 42, 99, 55, 13, 17, 52]
+GPU 0 processing clients: [90, 0, 42, 55, 17]
+GPU 1 processing clients: [57, 77, 99, 13, 52]
+GPU 1 finished processing clients: [57, 77, 99, 13, 52]
+FedAvg complete
+Round 9 validation accuracy: 0.612
+
+Starting round 10
+Selected clients: [53, 48, 55, 78, 31, 16, 15, 17, 28, 12]
+GPU 0 processing clients: [53, 55, 31, 15, 28]
+GPU 1 processing clients: [48, 78, 16, 17, 12]
+GPU 1 finished processing clients: [48, 78, 16, 17, 12]
+FedAvg complete
+Round 10 validation accuracy: 0.622
+Simulation complete. Final model saved.
+
+------------------------------------------------------------
+Sender: LSF System <lsfadmin@hpc.dtu.dk>
+Subject: Job 24400980: <fedavg2_2gpu> in cluster <dcc> Done
+
+Job <fedavg2_2gpu> was submitted from host <hpclogin1> by user <s204790> in cluster <dcc> at Wed Mar 12 09:51:35 2025
+Job was executed on host(s) <8*n-62-12-21>, in queue <gpua100>, as user <s204790> in cluster <dcc> at Wed Mar 12 23:59:58 2025
+</zhome/94/5/156250> was used as the home directory.
+</zhome/94/5/156250/Documents/FederatedLearning/FederatedLearning/HPC> was used as the working directory.
+Started at Wed Mar 12 23:59:58 2025
+Terminated at Thu Mar 13 00:04:22 2025
+Results reported at Thu Mar 13 00:04:22 2025
+
+Your job looked like:
+
+------------------------------------------------------------
+# LSBATCH: User input
+#!/bin/bash
+
+### General options
+### –- specify queue --
+#BSUB -q gpua100
+
+### -- set the job Name --
+#BSUB -J fedavg2_2gpu
+
+### -- ask for number of cores (default: 1) --
+#BSUB -n 8
+
+### -- Select the resources: 1 gpu in exclusive process mode --
+#BSUB -gpu "num=2:mode=exclusive_process"
+
+### -- set walltime limit: hh:mm --  maximum 24 hours for GPU-queues right now
+#BSUB -W 02:00
+
+# request system-memory
+#BSUB -R "rusage[mem=16GB]"
+
+
+#BSUB -R "span[hosts=1]"
+
+### -- Specify the output and error file. %J is the job-id --
+### -- -o and -e mean append, -oo and -eo mean overwrite --
+#BSUB -o /zhome/94/5/156250/Documents/FederatedLearning/FederatedLearning/HPC/outputs/fedavg2_2gpu%J.out
+#BSUB -e /zhome/94/5/156250/Documents/FederatedLearning/FederatedLearning/HPC/outputs/fedavg2_2gpu%J.err
+# -- end of LSF options --
+
+# module load python3/3.12.4
+source /zhome/94/5/156250/Documents/FederatedLearning/.venv/bin/activate
+
+python3 -u cifar10_fedavg2.py
+------------------------------------------------------------
+
+Successfully completed.
+
+Resource usage summary:
+
+    CPU time :                                   249.00 sec.
+    Max Memory :                                 1568 MB
+    Average Memory :                             1098.75 MB
+    Total Requested Memory :                     131072.00 MB
+    Delta Memory :                               129504.00 MB
+    Max Swap :                                   -
+    Max Processes :                              7
+    Max Threads :                                15
+    Run time :                                   264 sec.
+    Turnaround time :                            51167 sec.
+
+The output (if any) is above this job summary.
+
+
+
+PS:
+
+Read file </zhome/94/5/156250/Documents/FederatedLearning/FederatedLearning/HPC/outputs/fedavg2_2gpu24400980.err> for stderr output of this job.
+

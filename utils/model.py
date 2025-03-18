@@ -3,28 +3,28 @@ from torch import nn
 
 
 class SmallCNN(nn.Module):
-    def __init__(self):
+    def __init__(self, chs=[32, 64, 128], num_lin=256):
         super(SmallCNN, self).__init__()
-
+        num_lin = 128
         # Activation funtion
         self.relu = nn.ReLU()
 
         # Convcolutional layers
         self.ConvLayers = nn.ModuleList([
-            nn.Conv2d(3, 32, kernel_size=3, padding=1),   # N x 3 x 32 x 32 -> N x 32 x 32 x 32
-            nn.Conv2d(32, 64, kernel_size=3, padding=1),  # N x 32 x 16 x 16 -> N x 64 x 16 x 16
-            nn.Conv2d(64, 128, kernel_size=3, padding=1), # N x 64 x 8 x 8 -> N x 128 x 8 x 8
+            nn.Conv2d(3, chs[0], kernel_size=3, padding=1),   # N x 3 x 32 x 32 -> N x 32 x 32 x 32
+            nn.Conv2d(chs[0], chs[1], kernel_size=3, padding=1),  # N x 32 x 16 x 16 -> N x 64 x 16 x 16
+            nn.Conv2d(chs[1], chs[2], kernel_size=3, padding=1), # N x 64 x 8 x 8 -> N x 128 x 8 x 8
         ])
 
         # Linear layers
-        self.fc1 = nn.Linear(128 * 4 * 4, 256)      # first fully connected layer after convolutional layers
-        self.fc2 = nn.Linear(256, 10)               # final fully connected layer for output
+        self.fc1 = nn.Linear(chs[2] * 4 * 4, num_lin)      # first fully connected layer after convolutional layers
+        self.fc2 = nn.Linear(num_lin, 10)               # final fully connected layer for output
 
         # batch normalization layers (for regularization)
         self.BatchNorms = nn.ModuleList([
-            nn.BatchNorm2d(32),
-            nn.BatchNorm2d(64),
-            nn.BatchNorm2d(128),
+            nn.BatchNorm2d(chs[0]),
+            nn.BatchNorm2d(chs[1]),
+            nn.BatchNorm2d(chs[2]),
         ])
 
         # regularization layers

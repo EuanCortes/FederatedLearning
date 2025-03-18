@@ -1,0 +1,315 @@
+Loaded dependency [python3/3.12.2]: sqlite3/3.45.1
+Loaded dependency [python3/3.12.2]: gcc/12.3.0-binutils-2.40
+Loaded module: python3/3.12.2
+
+Loading python3/3.12.2
+  Loading requirement: sqlite3/3.45.1 gcc/12.3.0-binutils-2.40
+Process Process-2:
+Traceback (most recent call last):
+  File "/appl9/python/3.12.2/lib/python3.12/multiprocessing/process.py", line 314, in _bootstrap
+    self.run()
+  File "/appl9/python/3.12.2/lib/python3.12/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/zhome/94/5/156250/Documents/FederatedLearning/FederatedLearning/HPC/cifar10_fedavg2.py", line 93, in gpu_process
+    update = client_update_worker(global_state, device, client_loader, epochs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/94/5/156250/Documents/FederatedLearning/FederatedLearning/HPC/cifar10_fedavg2.py", line 49, in client_update_worker
+    model = SmallCNN().to(device)
+            ^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/94/5/156250/Documents/FederatedLearning/.venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1343, in to
+    return self._apply(convert)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/94/5/156250/Documents/FederatedLearning/.venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 903, in _apply
+    module._apply(fn)
+  File "/zhome/94/5/156250/Documents/FederatedLearning/.venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 903, in _apply
+    module._apply(fn)
+  File "/zhome/94/5/156250/Documents/FederatedLearning/.venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 930, in _apply
+    param_applied = fn(param)
+                    ^^^^^^^^^
+  File "/zhome/94/5/156250/Documents/FederatedLearning/.venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1329, in convert
+    return t.to(
+           ^^^^^
+RuntimeError: CUDA error: CUDA-capable device(s) is/are busy or unavailable
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
+terminate called without an active exception
+Process Process-5:
+Traceback (most recent call last):
+  File "/appl9/python/3.12.2/lib/python3.12/multiprocessing/process.py", line 314, in _bootstrap
+    self.run()
+  File "/appl9/python/3.12.2/lib/python3.12/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/zhome/94/5/156250/Documents/FederatedLearning/FederatedLearning/HPC/cifar10_fedavg2.py", line 93, in gpu_process
+    update = client_update_worker(global_state, device, client_loader, epochs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/94/5/156250/Documents/FederatedLearning/FederatedLearning/HPC/cifar10_fedavg2.py", line 49, in client_update_worker
+    model = SmallCNN().to(device)
+            ^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/94/5/156250/Documents/FederatedLearning/.venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1343, in to
+    return self._apply(convert)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/94/5/156250/Documents/FederatedLearning/.venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 903, in _apply
+    module._apply(fn)
+  File "/zhome/94/5/156250/Documents/FederatedLearning/.venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 903, in _apply
+    module._apply(fn)
+  File "/zhome/94/5/156250/Documents/FederatedLearning/.venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 930, in _apply
+    param_applied = fn(param)
+                    ^^^^^^^^^
+  File "/zhome/94/5/156250/Documents/FederatedLearning/.venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1329, in convert
+    return t.to(
+           ^^^^^
+RuntimeError: CUDA error: CUDA-capable device(s) is/are busy or unavailable
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
+terminate called without an active exception
+Process Process-8:
+Traceback (most recent call last):
+  File "/appl9/python/3.12.2/lib/python3.12/multiprocessing/process.py", line 314, in _bootstrap
+    self.run()
+  File "/appl9/python/3.12.2/lib/python3.12/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/zhome/94/5/156250/Documents/FederatedLearning/FederatedLearning/HPC/cifar10_fedavg2.py", line 93, in gpu_process
+    update = client_update_worker(global_state, device, client_loader, epochs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/94/5/156250/Documents/FederatedLearning/FederatedLearning/HPC/cifar10_fedavg2.py", line 49, in client_update_worker
+    model = SmallCNN().to(device)
+            ^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/94/5/156250/Documents/FederatedLearning/.venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1343, in to
+    return self._apply(convert)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/94/5/156250/Documents/FederatedLearning/.venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 903, in _apply
+    module._apply(fn)
+  File "/zhome/94/5/156250/Documents/FederatedLearning/.venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 903, in _apply
+    module._apply(fn)
+  File "/zhome/94/5/156250/Documents/FederatedLearning/.venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 930, in _apply
+    param_applied = fn(param)
+                    ^^^^^^^^^
+  File "/zhome/94/5/156250/Documents/FederatedLearning/.venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1329, in convert
+    return t.to(
+           ^^^^^
+RuntimeError: CUDA error: CUDA-capable device(s) is/are busy or unavailable
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
+terminate called without an active exception
+Process Process-11:
+Traceback (most recent call last):
+  File "/appl9/python/3.12.2/lib/python3.12/multiprocessing/process.py", line 314, in _bootstrap
+    self.run()
+  File "/appl9/python/3.12.2/lib/python3.12/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/zhome/94/5/156250/Documents/FederatedLearning/FederatedLearning/HPC/cifar10_fedavg2.py", line 93, in gpu_process
+    update = client_update_worker(global_state, device, client_loader, epochs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/94/5/156250/Documents/FederatedLearning/FederatedLearning/HPC/cifar10_fedavg2.py", line 49, in client_update_worker
+    model = SmallCNN().to(device)
+            ^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/94/5/156250/Documents/FederatedLearning/.venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1343, in to
+    return self._apply(convert)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/94/5/156250/Documents/FederatedLearning/.venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 903, in _apply
+    module._apply(fn)
+  File "/zhome/94/5/156250/Documents/FederatedLearning/.venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 903, in _apply
+    module._apply(fn)
+  File "/zhome/94/5/156250/Documents/FederatedLearning/.venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 930, in _apply
+    param_applied = fn(param)
+                    ^^^^^^^^^
+  File "/zhome/94/5/156250/Documents/FederatedLearning/.venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1329, in convert
+    return t.to(
+           ^^^^^
+RuntimeError: CUDA error: CUDA-capable device(s) is/are busy or unavailable
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
+terminate called without an active exception
+Process Process-14:
+Traceback (most recent call last):
+  File "/appl9/python/3.12.2/lib/python3.12/multiprocessing/process.py", line 314, in _bootstrap
+    self.run()
+  File "/appl9/python/3.12.2/lib/python3.12/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/zhome/94/5/156250/Documents/FederatedLearning/FederatedLearning/HPC/cifar10_fedavg2.py", line 93, in gpu_process
+    update = client_update_worker(global_state, device, client_loader, epochs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/94/5/156250/Documents/FederatedLearning/FederatedLearning/HPC/cifar10_fedavg2.py", line 49, in client_update_worker
+    model = SmallCNN().to(device)
+            ^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/94/5/156250/Documents/FederatedLearning/.venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1343, in to
+    return self._apply(convert)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/94/5/156250/Documents/FederatedLearning/.venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 903, in _apply
+    module._apply(fn)
+  File "/zhome/94/5/156250/Documents/FederatedLearning/.venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 903, in _apply
+    module._apply(fn)
+  File "/zhome/94/5/156250/Documents/FederatedLearning/.venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 930, in _apply
+    param_applied = fn(param)
+                    ^^^^^^^^^
+  File "/zhome/94/5/156250/Documents/FederatedLearning/.venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1329, in convert
+    return t.to(
+           ^^^^^
+RuntimeError: CUDA error: CUDA-capable device(s) is/are busy or unavailable
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
+terminate called without an active exception
+Process Process-17:
+Traceback (most recent call last):
+  File "/appl9/python/3.12.2/lib/python3.12/multiprocessing/process.py", line 314, in _bootstrap
+    self.run()
+  File "/appl9/python/3.12.2/lib/python3.12/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/zhome/94/5/156250/Documents/FederatedLearning/FederatedLearning/HPC/cifar10_fedavg2.py", line 93, in gpu_process
+    update = client_update_worker(global_state, device, client_loader, epochs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/94/5/156250/Documents/FederatedLearning/FederatedLearning/HPC/cifar10_fedavg2.py", line 49, in client_update_worker
+    model = SmallCNN().to(device)
+            ^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/94/5/156250/Documents/FederatedLearning/.venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1343, in to
+    return self._apply(convert)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/94/5/156250/Documents/FederatedLearning/.venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 903, in _apply
+    module._apply(fn)
+  File "/zhome/94/5/156250/Documents/FederatedLearning/.venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 903, in _apply
+    module._apply(fn)
+  File "/zhome/94/5/156250/Documents/FederatedLearning/.venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 930, in _apply
+    param_applied = fn(param)
+                    ^^^^^^^^^
+  File "/zhome/94/5/156250/Documents/FederatedLearning/.venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1329, in convert
+    return t.to(
+           ^^^^^
+RuntimeError: CUDA error: CUDA-capable device(s) is/are busy or unavailable
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
+terminate called without an active exception
+Process Process-20:
+Traceback (most recent call last):
+  File "/appl9/python/3.12.2/lib/python3.12/multiprocessing/process.py", line 314, in _bootstrap
+    self.run()
+  File "/appl9/python/3.12.2/lib/python3.12/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/zhome/94/5/156250/Documents/FederatedLearning/FederatedLearning/HPC/cifar10_fedavg2.py", line 93, in gpu_process
+    update = client_update_worker(global_state, device, client_loader, epochs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/94/5/156250/Documents/FederatedLearning/FederatedLearning/HPC/cifar10_fedavg2.py", line 49, in client_update_worker
+    model = SmallCNN().to(device)
+            ^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/94/5/156250/Documents/FederatedLearning/.venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1343, in to
+    return self._apply(convert)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/94/5/156250/Documents/FederatedLearning/.venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 903, in _apply
+    module._apply(fn)
+  File "/zhome/94/5/156250/Documents/FederatedLearning/.venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 903, in _apply
+    module._apply(fn)
+  File "/zhome/94/5/156250/Documents/FederatedLearning/.venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 930, in _apply
+    param_applied = fn(param)
+                    ^^^^^^^^^
+  File "/zhome/94/5/156250/Documents/FederatedLearning/.venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1329, in convert
+    return t.to(
+           ^^^^^
+RuntimeError: CUDA error: CUDA-capable device(s) is/are busy or unavailable
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
+terminate called without an active exception
+Process Process-23:
+Traceback (most recent call last):
+  File "/appl9/python/3.12.2/lib/python3.12/multiprocessing/process.py", line 314, in _bootstrap
+    self.run()
+  File "/appl9/python/3.12.2/lib/python3.12/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/zhome/94/5/156250/Documents/FederatedLearning/FederatedLearning/HPC/cifar10_fedavg2.py", line 93, in gpu_process
+    update = client_update_worker(global_state, device, client_loader, epochs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/94/5/156250/Documents/FederatedLearning/FederatedLearning/HPC/cifar10_fedavg2.py", line 49, in client_update_worker
+    model = SmallCNN().to(device)
+            ^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/94/5/156250/Documents/FederatedLearning/.venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1343, in to
+    return self._apply(convert)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/94/5/156250/Documents/FederatedLearning/.venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 903, in _apply
+    module._apply(fn)
+  File "/zhome/94/5/156250/Documents/FederatedLearning/.venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 903, in _apply
+    module._apply(fn)
+  File "/zhome/94/5/156250/Documents/FederatedLearning/.venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 930, in _apply
+    param_applied = fn(param)
+                    ^^^^^^^^^
+  File "/zhome/94/5/156250/Documents/FederatedLearning/.venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1329, in convert
+    return t.to(
+           ^^^^^
+RuntimeError: CUDA error: CUDA-capable device(s) is/are busy or unavailable
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
+terminate called without an active exception
+Process Process-26:
+Traceback (most recent call last):
+  File "/appl9/python/3.12.2/lib/python3.12/multiprocessing/process.py", line 314, in _bootstrap
+    self.run()
+  File "/appl9/python/3.12.2/lib/python3.12/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/zhome/94/5/156250/Documents/FederatedLearning/FederatedLearning/HPC/cifar10_fedavg2.py", line 93, in gpu_process
+    update = client_update_worker(global_state, device, client_loader, epochs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/94/5/156250/Documents/FederatedLearning/FederatedLearning/HPC/cifar10_fedavg2.py", line 49, in client_update_worker
+    model = SmallCNN().to(device)
+            ^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/94/5/156250/Documents/FederatedLearning/.venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1343, in to
+    return self._apply(convert)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/94/5/156250/Documents/FederatedLearning/.venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 903, in _apply
+    module._apply(fn)
+  File "/zhome/94/5/156250/Documents/FederatedLearning/.venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 903, in _apply
+    module._apply(fn)
+  File "/zhome/94/5/156250/Documents/FederatedLearning/.venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 930, in _apply
+    param_applied = fn(param)
+                    ^^^^^^^^^
+  File "/zhome/94/5/156250/Documents/FederatedLearning/.venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1329, in convert
+    return t.to(
+           ^^^^^
+RuntimeError: CUDA error: CUDA-capable device(s) is/are busy or unavailable
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
+terminate called without an active exception
+Process Process-29:
+Traceback (most recent call last):
+  File "/appl9/python/3.12.2/lib/python3.12/multiprocessing/process.py", line 314, in _bootstrap
+    self.run()
+  File "/appl9/python/3.12.2/lib/python3.12/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/zhome/94/5/156250/Documents/FederatedLearning/FederatedLearning/HPC/cifar10_fedavg2.py", line 93, in gpu_process
+    update = client_update_worker(global_state, device, client_loader, epochs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/94/5/156250/Documents/FederatedLearning/FederatedLearning/HPC/cifar10_fedavg2.py", line 49, in client_update_worker
+    model = SmallCNN().to(device)
+            ^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/94/5/156250/Documents/FederatedLearning/.venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1343, in to
+    return self._apply(convert)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/94/5/156250/Documents/FederatedLearning/.venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 903, in _apply
+    module._apply(fn)
+  File "/zhome/94/5/156250/Documents/FederatedLearning/.venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 903, in _apply
+    module._apply(fn)
+  File "/zhome/94/5/156250/Documents/FederatedLearning/.venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 930, in _apply
+    param_applied = fn(param)
+                    ^^^^^^^^^
+  File "/zhome/94/5/156250/Documents/FederatedLearning/.venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1329, in convert
+    return t.to(
+           ^^^^^
+RuntimeError: CUDA error: CUDA-capable device(s) is/are busy or unavailable
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
