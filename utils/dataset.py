@@ -1,5 +1,6 @@
 import torch
 import os
+import random
 
 from torchvision.datasets import CIFAR10
 from torch.utils.data import random_split
@@ -49,6 +50,13 @@ def split_data(data, num_clients=100, iid=True):
         client_indices = torch.tensor_split(torch.randperm(len(data)), num_clients)
         print(f"  {num_clients} splits with {len(client_indices[0])} samples each\n")
     else:
-        raise NotImplementedError("Non-IID sampling has not been implemented yet")
-
+        # raise NotImplementedError("Non-IID sampling has not been implemented yet")
+        indices = data.indices
+        labels = [data.dataset.targets[i] for i in indices]
+        sorted_indices = [index for _, index in sorted(zip(labels, indices))]
+        shards = [sorted_indices[i:i+len(sorted_indices)//num_clients//2] for i in range(0, len(sorted_indices), len(sorted_indices)//num_clients//2)]
+        random.shuffle(shards)
+        client_indices = tuple([shards[i] + shards[i+1] for i in range(0, len(shards), 2)])
+        print(f" {num_clients} splits with {len(client_indices[0])} samples each\n")
+    
     return client_indices

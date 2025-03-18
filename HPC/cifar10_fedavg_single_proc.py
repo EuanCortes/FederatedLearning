@@ -53,6 +53,7 @@ if __name__ == "__main__":
                                             max_rounds=MAX_ROUNDS,
                                             num_local_epochs=NUM_LOCAL_EPOCHS,
                                             lr=lr,
+                                            iid = False,
                                             )
 
             fig1.savefig(f"outputs/figures/0_err_acc_N_{NUM_CLIENTS:d}__C_{C:.2f}__iters_{final_round:d}.png", dpi=200)

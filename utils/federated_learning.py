@@ -128,6 +128,7 @@ def federated_sim(num_clients : int,
                   max_rounds : int,
                   num_local_epochs : int,
                   lr=0.001,
+                  iid=True,
                   ):
     '''
     function to simulate federated learning on single process
@@ -149,7 +150,7 @@ def federated_sim(num_clients : int,
 
 
     ############# prepare client partitions ####################
-    client_indices = split_data(trainset, num_clients=num_clients, iid=True)
+    client_indices = split_data(trainset, num_clients=num_clients, iid=iid)
 
     clientloaders = [
         DataLoader(Subset(trainset, client_indices[i]), 
