@@ -152,12 +152,22 @@ def federated_sim(num_clients : int,
     ############# prepare client partitions ####################
     client_indices = split_data(trainset, num_clients=num_clients, iid=iid)
 
-    clientloaders = [
-        DataLoader(Subset(trainset, client_indices[i]), 
-                batch_size=64, 
-                shuffle=True, 
-                num_workers=0)
-        for i in range(num_clients)
+    if iid == True:
+        clientloaders = [
+            DataLoader(Subset(trainset.dataset, client_indices[i]), 
+                    batch_size=64, 
+                    shuffle=True, 
+                    num_workers=0)
+            for i in range(num_clients)
+            ]
+        
+    elif iid == False:
+        clientloaders = [
+            DataLoader(Subset(trainset.dataset, client_indices[i]), 
+                    batch_size=64, 
+                    shuffle=True, 
+                    num_workers=0)
+            for i in range(num_clients)
         ]
     ############################################################
 
