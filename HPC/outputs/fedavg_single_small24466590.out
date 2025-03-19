@@ -1,0 +1,405 @@
+Number of clients: 100
+Number of clients per round: 10
+loading data:
+  number of training samples: 40000
+  number of validation samples: 10000
+  number of test samples: 10000
+
+splitting data:
+  100 splits with 400 samples each
+
+network architecture:
+SmallCNN(
+  (relu): ReLU()
+  (ConvLayers): ModuleList(
+    (0): Conv2d(3, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+    (1): Conv2d(32, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+    (2): Conv2d(64, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+  )
+  (fc1): Linear(in_features=2048, out_features=128, bias=True)
+  (fc2): Linear(in_features=128, out_features=10, bias=True)
+  (BatchNorms): ModuleList(
+    (0): BatchNorm2d(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  )
+  (pool): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)
+  (dropout): Dropout(p=0.2, inplace=False)
+)
+Round 9 done
+training loss: 0.518
+Validation accuracy: 0.621
+Round 19 done
+training loss: 0.304
+Validation accuracy: 0.685
+Round 29 done
+training loss: 0.200
+Validation accuracy: 0.710
+Round 39 done
+training loss: 0.138
+Validation accuracy: 0.724
+Round 49 done
+training loss: 0.106
+Validation accuracy: 0.742
+Round 59 done
+training loss: 0.097
+Validation accuracy: 0.740
+Round 69 done
+training loss: 0.071
+Validation accuracy: 0.756
+Round 79 done
+training loss: 0.078
+Validation accuracy: 0.757
+Round 89 done
+training loss: 0.065
+Validation accuracy: 0.761
+Round 99 done
+training loss: 0.054
+Validation accuracy: 0.758
+Round 109 done
+training loss: 0.051
+Validation accuracy: 0.760
+Round 119 done
+training loss: 0.038
+Validation accuracy: 0.766
+Finished Training in 123 rounds
+training loss: 0.056
+Validation accuracy: 0.770
+Number of clients: 100
+Number of clients per round: 20
+loading data:
+  number of training samples: 40000
+  number of validation samples: 10000
+  number of test samples: 10000
+
+splitting data:
+  100 splits with 400 samples each
+
+network architecture:
+SmallCNN(
+  (relu): ReLU()
+  (ConvLayers): ModuleList(
+    (0): Conv2d(3, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+    (1): Conv2d(32, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+    (2): Conv2d(64, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+  )
+  (fc1): Linear(in_features=2048, out_features=128, bias=True)
+  (fc2): Linear(in_features=128, out_features=10, bias=True)
+  (BatchNorms): ModuleList(
+    (0): BatchNorm2d(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  )
+  (pool): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)
+  (dropout): Dropout(p=0.2, inplace=False)
+)
+Round 9 done
+training loss: 0.509
+Validation accuracy: 0.635
+Round 19 done
+training loss: 0.277
+Validation accuracy: 0.691
+Round 29 done
+training loss: 0.192
+Validation accuracy: 0.714
+Round 39 done
+training loss: 0.133
+Validation accuracy: 0.728
+Round 49 done
+training loss: 0.103
+Validation accuracy: 0.739
+Round 59 done
+training loss: 0.093
+Validation accuracy: 0.747
+Round 69 done
+training loss: 0.073
+Validation accuracy: 0.749
+Round 79 done
+training loss: 0.075
+Validation accuracy: 0.756
+Round 89 done
+training loss: 0.067
+Validation accuracy: 0.758
+Round 99 done
+training loss: 0.061
+Validation accuracy: 0.761
+Round 109 done
+training loss: 0.060
+Validation accuracy: 0.762
+Round 119 done
+training loss: 0.051
+Validation accuracy: 0.764
+Round 129 done
+training loss: 0.047
+Validation accuracy: 0.762
+Round 139 done
+training loss: 0.052
+Validation accuracy: 0.766
+Round 149 done
+training loss: 0.051
+Validation accuracy: 0.767
+Round 159 done
+training loss: 0.057
+Validation accuracy: 0.766
+Finished Training in 165 rounds
+training loss: 0.056
+Validation accuracy: 0.771
+Number of clients: 500
+Number of clients per round: 25
+loading data:
+  number of training samples: 40000
+  number of validation samples: 10000
+  number of test samples: 10000
+
+splitting data:
+  500 splits with 80 samples each
+
+network architecture:
+SmallCNN(
+  (relu): ReLU()
+  (ConvLayers): ModuleList(
+    (0): Conv2d(3, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+    (1): Conv2d(32, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+    (2): Conv2d(64, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+  )
+  (fc1): Linear(in_features=2048, out_features=128, bias=True)
+  (fc2): Linear(in_features=128, out_features=10, bias=True)
+  (BatchNorms): ModuleList(
+    (0): BatchNorm2d(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  )
+  (pool): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)
+  (dropout): Dropout(p=0.2, inplace=False)
+)
+Round 24 done
+training loss: 0.334
+Validation accuracy: 0.605
+Round 49 done
+training loss: 0.194
+Validation accuracy: 0.664
+Round 74 done
+training loss: 0.174
+Validation accuracy: 0.691
+Round 99 done
+training loss: 0.122
+Validation accuracy: 0.710
+Round 124 done
+training loss: 0.111
+Validation accuracy: 0.721
+Round 149 done
+training loss: 0.097
+Validation accuracy: 0.730
+Round 174 done
+training loss: 0.094
+Validation accuracy: 0.733
+Round 199 done
+training loss: 0.084
+Validation accuracy: 0.740
+Round 224 done
+training loss: 0.114
+Validation accuracy: 0.739
+Round 249 done
+training loss: 0.116
+Validation accuracy: 0.741
+Round 274 done
+training loss: 0.122
+Validation accuracy: 0.728
+Round 299 done
+training loss: 0.178
+Validation accuracy: 0.734
+Round 324 done
+training loss: 0.169
+Validation accuracy: 0.733
+Round 349 done
+training loss: 0.239
+Validation accuracy: 0.734
+Round 374 done
+training loss: 0.168
+Validation accuracy: 0.741
+Round 399 done
+training loss: 0.244
+Validation accuracy: 0.726
+Round 424 done
+training loss: 0.246
+Validation accuracy: 0.731
+Round 449 done
+training loss: 0.253
+Validation accuracy: 0.734
+Round 474 done
+training loss: 0.341
+Validation accuracy: 0.728
+Round 499 done
+training loss: 0.292
+Validation accuracy: 0.735
+Finished Training in 500 rounds
+training loss: 0.265
+Validation accuracy: 0.717
+Number of clients: 500
+Number of clients per round: 50
+loading data:
+  number of training samples: 40000
+  number of validation samples: 10000
+  number of test samples: 10000
+
+splitting data:
+  500 splits with 80 samples each
+
+network architecture:
+SmallCNN(
+  (relu): ReLU()
+  (ConvLayers): ModuleList(
+    (0): Conv2d(3, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+    (1): Conv2d(32, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+    (2): Conv2d(64, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+  )
+  (fc1): Linear(in_features=2048, out_features=128, bias=True)
+  (fc2): Linear(in_features=128, out_features=10, bias=True)
+  (BatchNorms): ModuleList(
+    (0): BatchNorm2d(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  )
+  (pool): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)
+  (dropout): Dropout(p=0.2, inplace=False)
+)
+Round 24 done
+training loss: 0.360
+Validation accuracy: 0.595
+Round 49 done
+training loss: 0.202
+Validation accuracy: 0.658
+Round 74 done
+training loss: 0.147
+Validation accuracy: 0.680
+Round 99 done
+training loss: 0.120
+Validation accuracy: 0.702
+Round 124 done
+training loss: 0.117
+Validation accuracy: 0.721
+Round 149 done
+training loss: 0.113
+Validation accuracy: 0.729
+Round 174 done
+training loss: 0.095
+Validation accuracy: 0.723
+Round 199 done
+training loss: 0.114
+Validation accuracy: 0.730
+Round 224 done
+training loss: 0.116
+Validation accuracy: 0.730
+Round 249 done
+training loss: 0.132
+Validation accuracy: 0.732
+Round 274 done
+training loss: 0.164
+Validation accuracy: 0.736
+Round 299 done
+training loss: 0.224
+Validation accuracy: 0.725
+Round 324 done
+training loss: 0.218
+Validation accuracy: 0.729
+Round 349 done
+training loss: 0.206
+Validation accuracy: 0.726
+Round 374 done
+training loss: 0.270
+Validation accuracy: 0.719
+Round 399 done
+training loss: 0.264
+Validation accuracy: 0.732
+Round 424 done
+training loss: 0.249
+Validation accuracy: 0.726
+Round 449 done
+training loss: 0.253
+Validation accuracy: 0.723
+Round 474 done
+training loss: 0.322
+Validation accuracy: 0.723
+Round 499 done
+training loss: 0.303
+Validation accuracy: 0.716
+Finished Training in 500 rounds
+training loss: 0.321
+Validation accuracy: 0.719
+Finished experiment.
+
+------------------------------------------------------------
+Sender: LSF System <lsfadmin@hpc.dtu.dk>
+Subject: Job 24466590: <fedavg_single_small> in cluster <dcc> Done
+
+Job <fedavg_single_small> was submitted from host <hpclogin1> by user <s204790> in cluster <dcc> at Wed Mar 19 11:03:45 2025
+Job was executed on host(s) <4*n-62-12-24>, in queue <gpua100>, as user <s204790> in cluster <dcc> at Wed Mar 19 11:06:30 2025
+</zhome/94/5/156250> was used as the home directory.
+</zhome/94/5/156250/Documents/FederatedLearning/FederatedLearning/HPC> was used as the working directory.
+Started at Wed Mar 19 11:06:30 2025
+Terminated at Wed Mar 19 13:33:00 2025
+Results reported at Wed Mar 19 13:33:00 2025
+
+Your job looked like:
+
+------------------------------------------------------------
+# LSBATCH: User input
+#!/bin/bash
+
+### General options
+### –- specify queue --
+#BSUB -q gpua100
+
+### -- set the job Name --
+#BSUB -J fedavg_single_small
+
+### -- ask for number of cores (default: 1) --
+#BSUB -n 4
+
+### -- Select the resources: 1 gpu in exclusive process mode --
+#BSUB -gpu "num=1:mode=exclusive_process"
+
+### -- set walltime limit: hh:mm --  maximum 24 hours for GPU-queues right now
+#BSUB -W 06:00
+
+# request system-memory
+#BSUB -R "rusage[mem=16GB]"
+
+
+#BSUB -R "span[hosts=1]"
+
+### -- Specify the output and error file. %J is the job-id --
+### -- -o and -e mean append, -oo and -eo mean overwrite --
+#BSUB -o /zhome/94/5/156250/Documents/FederatedLearning/FederatedLearning/HPC/outputs/fedavg_single_small%J.out
+#BSUB -e /zhome/94/5/156250/Documents/FederatedLearning/FederatedLearning/HPC/outputs/fedavg_single_small%J.err
+# -- end of LSF options --
+
+# module load python3/3.12.4
+source /zhome/94/5/156250/Documents/FederatedLearning/.venv/bin/activate
+
+python3 -u cifar10_fedavg_single_proc.py
+------------------------------------------------------------
+
+Successfully completed.
+
+Resource usage summary:
+
+    CPU time :                                   8789.86 sec.
+    Max Memory :                                 1074 MB
+    Average Memory :                             1021.80 MB
+    Total Requested Memory :                     65536.00 MB
+    Delta Memory :                               64462.00 MB
+    Max Swap :                                   -
+    Max Processes :                              4
+    Max Threads :                                9
+    Run time :                                   8790 sec.
+    Turnaround time :                            8955 sec.
+
+The output (if any) is above this job summary.
+
+
+
+PS:
+
+Read file </zhome/94/5/156250/Documents/FederatedLearning/FederatedLearning/HPC/outputs/fedavg_single_small24466590.err> for stderr output of this job.
+

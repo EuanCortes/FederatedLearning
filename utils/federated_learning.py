@@ -204,7 +204,7 @@ def federated_sim(num_clients : int,
         val_acc = validate(net, current_weights, valloader)
         val_accuracy.append(val_acc)
 
-        if round % print_every == print_every - 1:
+        if current_round % print_every == print_every - 1:
             print(f"Round {current_round} done")
             print(f"training loss: {avg_train_loss[-1]:.3f}")
             print(f"Validation accuracy: {val_acc:.3f}")

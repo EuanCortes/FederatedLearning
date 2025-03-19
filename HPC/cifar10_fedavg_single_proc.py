@@ -44,8 +44,18 @@ if __name__ == "__main__":
     lrs = [0.001, 0.001]
 
     experiment_name = "smaller_network"
+    path = f"outputs/figures/{experiment_name}"
 
-    os.mkdir(f"outputs/figures/{experiment_name}")
+    if os.path.exists(path):
+        i = 1
+        while os.path.exists(path + f"{i:d}"):
+            i += 1
+        path = path + f"{i:d}"
+   
+    os.mkdir(path)
+  
+        
+
     ############################################################
 
 
@@ -58,7 +68,7 @@ if __name__ == "__main__":
                                             lr=lr,
                                             )
 
-            fig1.savefig(f"outputs/figures/{experiment_name}/err_acc_N_{NUM_CLIENTS:d}__C_{C:.2f}__iters_{final_round:d}.png", dpi=200)
-            fig2.savefig(f"outputs/figures/{experiment_name}/hist_N_{NUM_CLIENTS:d}__C_{C:.2f}__iters_{final_round:d}.png", dpi=200)
+            fig1.savefig(path + f"/err_acc_N_{NUM_CLIENTS:d}__C_{C:.2f}__iters_{final_round:d}.png", dpi=200)
+            fig2.savefig(path + f"/hist_N_{NUM_CLIENTS:d}__C_{C:.2f}__iters_{final_round:d}.png", dpi=200)
 
     print("Finished experiment.")
