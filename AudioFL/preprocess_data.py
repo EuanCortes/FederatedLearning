@@ -13,6 +13,13 @@ import multiprocessing
 import argparse
 
 
+#--------------- STFT parameters ---------------#
+# The base signal is resampled to 8000Hz
+point_per_segment = 450
+point_overlap = 150
+
+
+
 def preprocess_data(src, dst, src_meta, n_processes=15):
     """
     Calls for distibuted preprocessing of the data.
@@ -106,20 +113,22 @@ def _preprocess_data(src_dst_meta):
 
         ##### AlexNet #####
 
-        # stft, with seleced parameters, spectrogram will have shape (228,230)
+        # stft
         f, t, Zxx = scipy.signal.stft(
-            embedded_data, 8000, nperseg=455, noverlap=420, window="hann"
+            embedded_data, 8000, nperseg=point_per_segment, noverlap=point_overlap, window="hann"
         )
         # get amplitude
-        Zxx = np.abs(Zxx[0:227, 2:-1])
+        Zxx = np.abs(Zxx)
         Zxx = np.atleast_3d(Zxx).transpose(2, 0, 1)
         # convert to decibel
         Zxx = librosa.amplitude_to_db(Zxx, ref=np.max)
+        _, H, W = Zxx.shape
+
         # save as hdf5 file
         with h5py.File(
             os.path.join(dst, "AlexNet_{}_{}_{}.hdf5".format(dig, vp, rep)), "w"
         ) as f:
-            tmp_X = np.zeros([1, 1, 227, 227])
+            tmp_X = np.zeros([1, 1, H, W])
 
             tmp_X[0, 0] = Zxx
             f["data"] = tmp_X
@@ -433,6 +442,137 @@ def create_splits(src, dst):
                             txt_file.write(filepath + "\n")
 
 
+def __s_create_splits(src, dst):
+    """
+    Creation of text files specifying which files training, validation and test
+    set consist of for each cross-validation split.
+    Small splits, only uses 10 speakers
+    Parameters:
+    -----------
+        src: string
+            Path to directory containing the directories for each subject that
+            hold the preprocessed data in hdf5 format.
+        dst: string
+            Destination where to store the text files specifying training,
+            validation and test splits.
+
+    """
+
+    print("creating splits")
+    splits = {
+        "digit": {
+            "train": [
+                set(
+                    [
+                        28,
+                        56,
+                        7,
+                        19,
+                        35,
+                        1,
+                        6,
+                        16,
+                        23,
+                    ]
+                ),
+                set(
+                    [
+                        36,
+                        57,
+                        9,
+                        24,
+                        37,
+                        2,
+                        8,
+                        17,
+                        29,
+                        39,
+                    ]
+                ),
+                set(
+                    [
+                        43,
+                        58,
+                        14,
+                        25,
+                        38,
+                        3,
+                        10,
+                        20,
+                        30,
+                        40,
+                    ]
+                ),
+                set(
+                    [
+                        12,
+                        47,
+                        59,
+                        15,
+                        27,
+                        41,
+                        4,
+                        11,
+                        21,
+                        31,
+                    ]
+                ),
+                set(
+                    [
+                        26,
+                        52,
+                        60,
+                        18,
+                        32,
+                        42,
+                        5,
+                        13,
+                        22,
+                        33,
+                    ]
+                ),
+            ],
+            "validate": [
+                set([12, 47, 59, 15, 27, 41, 4, 11, 21, 31, 44, 50]),
+                set([26, 52, 60, 18, 32, 42, 5, 13, 22, 33, 45, 51]),
+                set([28, 56, 7, 19, 35, 1, 6, 16, 23, 34, 46, 53]),
+                set([36, 57, 9, 24, 37, 2, 8, 17, 29, 39, 48, 54]),
+                set([43, 58, 14, 25, 38, 3, 10, 20, 30, 40, 49, 55]),
+            ],
+            "test": [
+                set([26, 52, 60, 18, 32, 42, 5, 13, 22, 33, 45, 51]),
+                set([28, 56, 7, 19, 35, 1, 6, 16, 23, 34, 46, 53]),
+                set([36, 57, 9, 24, 37, 2, 8, 17, 29, 39, 48, 54]),
+                set([43, 58, 14, 25, 38, 3, 10, 20, 30, 40, 49, 55]),
+                set([12, 47, 59, 15, 27, 41, 4, 11, 21, 31, 44, 50]),
+            ],
+        },
+    }
+
+    for split in range(5):
+        for modus in ["train", "validate", "test"]:
+            task = "digit"
+            with open(
+                os.path.join(dst, "AlexNet_{}_{}_{}.txt".format(task, split, modus)),
+                mode="w",
+            ) as txt_file:
+                for vp in splits[task][modus][split]:
+                    for filepath in glob.glob(
+                        os.path.join(src, "{:02d}".format(vp), "AlexNet*.hdf5")
+                    ):
+                        txt_file.write(filepath + "\n")
+
+            with open(
+                os.path.join(dst, "AudioNet_{}_{}_{}.txt".format(task, split, modus)),
+                mode="w",
+            ) as txt_file:
+                for vp in splits[task][modus][split]:
+                    for filepath in glob.glob(
+                        os.path.join(src, "{:02d}".format(vp), "AudioNet*.hdf5")
+                    ):
+                        txt_file.write(filepath + "\n")
+
+
 if __name__ == "__main__":
 
     parser = argparse.ArgumentParser()
@@ -461,3 +601,5 @@ if __name__ == "__main__":
     preprocess_data(src=args.source, dst=args.destination, src_meta=args.meta)
     # create training, validation and test sets
     create_splits(src=args.destination, dst=args.destination)
+    # create small test training sets if needed - uncomment line
+    # __s_create_splits(src=args.destination, dst=args.destination)
