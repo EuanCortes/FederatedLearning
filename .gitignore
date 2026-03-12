@@ -1,5 +1,7 @@
-data/data/
 data/
 runs/
 __pycache__/
 *.py[cod]
+.venv/
+AudioMNIST/
+AudioFL/preprocessed_data
